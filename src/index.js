@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import NavigationBar from './navbar';
 import reportWebVitals from './reportWebVitals';
+import Modal from './Modal'
+
 
 ReactDOM.render(
   <React.StrictMode>

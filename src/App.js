@@ -1,6 +1,34 @@
 import React from "react";
 import bgImg from "./assets/2474247.jpg"
 import "./App.css";
+import MyVerticallyCenteredModal from './Modal'
+import { Button } from 'react-bootstrap';
+
+function ModalApp(props) {
+  const [modalShow, setModalShow] = React.useState(false);
+  const setModal = () => {
+    setModalShow(true)
+    console.log(props);
+  };
+
+  return (
+    <>
+      {/* <Button variant="primary" onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+      </Button>
+       */}
+       <Button variant="primary" onClick={setModal}>
+        Launch vertically centered modal
+      </Button>
+
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        data={props}
+      />
+    </>
+  );
+}
 
 function App() {
   const FormObj = {
@@ -26,10 +54,6 @@ function App() {
         ...formData,[e.target.name]: e.target.value.trim()
       });
     };
-
-    // const fillAddress=(e)=>{
-      
-    // }
   
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -41,7 +65,7 @@ function App() {
     <div className="container-fluid">
     <div className="row">
       <div className="col-md-6 imgDiv">
-        <img src="" alt="bgImg"/>
+        <img src={bgImg} alt="bgImg"/>
         
       </div>
       <div className="col-md-6 studentForm">
@@ -87,7 +111,7 @@ function App() {
             <div className="row">
               <div className="col">
                 <label>Email:</label>
-                <input name="Email" type="text" className="form-control" onChange={handleChange}  value="" />
+                <input name="Email" type="text" className="form-control" onChange={handleChange} />
               </div>
               <div className="col">
                 <label>Phone:</label>
@@ -201,13 +225,14 @@ function App() {
             <button
               type="reset"
               className="btn btn-secondary"
-              data-bs-dismiss="modal"
+              data-bs-dismiss="modal" 
             >
               Reset
             </button>
-            <button type="submit" onClick={handleSubmit} className="btn btn-primary">
+            {/* <button type="submit" onClick={handleSubmit} className="btn btn-primary">
               Save Details
-            </button>
+            </button> */}
+            <ModalApp data={formData} />
           </div>
         </form>
       </div>
