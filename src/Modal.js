@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
+import titleImg from './assets/idcard.png'
 
-function MyVerticallyCenteredModal(props) {
+function DataModal(props) {
+  console.log(props)
   return (
-    //   console.log(props.data.data.FirstName),
     <Modal
       show={props.show}
       onHide={props.onHide}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
+      centered 
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Student Data
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      {/* <Modal.Body>
+        <div>
+        <h2 className="modal-title" style={{textAlign:'center'}}> <img src={titleImg} style={{height:'50px',width:'50px'}}/> Student Registration Data</h2>
+        </div> <br/> <br/>
         <div className="row">
           <div className="col-md-12">
             <div>
@@ -120,7 +119,7 @@ function MyVerticallyCenteredModal(props) {
             </div>
           </div>
         </div>
-      </Modal.Body>
+      </Modal.Body> */}
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
@@ -129,4 +128,4 @@ function MyVerticallyCenteredModal(props) {
 }
 
 // render(<App />);
-export default MyVerticallyCenteredModal;
+export default DataModal;
