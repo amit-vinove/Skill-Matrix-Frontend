@@ -330,53 +330,70 @@ function EditModal({data,show,onHide}) {
 }
 
 function CreateModal({show,onHide}) {
-  const FormObj = {
-    FirstName: "",
-    LastName: "",
-    Gender:"",
-    DOB:"",
-    Email:"",
-    Phone:"",
-    Phone:"",
-    PermanentAddress:"",
-    CurrentAddress:"",
-    CourseId:null,
-    StreamId:null,
-    TwelfthMarks:null,
-    TenthMarks:null,
-    StudentBio:"" ,
-  };
-  const [formData, updateFormData] = React.useState(FormObj);
+  const [firstName , setFirstName] = useState("")
+  const [lastName , setLastName] = useState("")
+  const [ gender, setGender] = useState("")
+  const [dob , setDOB] = useState("")
+  const [email , setEmail] = useState("")
+  const [phone , setPhone] = useState("")
+  const [perAddress , setPerAddress] = useState("")
+  const [currAddress , setCurrAddress] = useState("")
+  const [courseId , setCourseId] = useState("")
+  const [streamId , setStreamId] = useState("")
+  const [twelfthMarks , setTwelfthMarks] = useState("")
+  const [tenthMarks , setTenthMarks] = useState("")
+  const [studentBio , setStudentBio] = useState("")
 
-  const handleChange = (e) => {
-    // ifelse
-    updateFormData({
-      ...formData,[e.target.name]: e.target.value.trim()
-    });
-  };
+  // const handleChange = (e) => {
+  //   // ifelse
+  //   updateFormData({
+  //     ...formData,[e.target.name]: e.target.value.trim()
+  //   });
+  // };
 
   const handleSubmit = (e) => {
-    const FormObj1 = {
-      "id": 0,
-      "firstName": "string",
-      "lastName": "string",
-      "gender": "string",
-      "dob": "string",
-      "email": "string",
-      "phone": "string",
-      "permanentAddress": "string",
-      "currentAddress": "string",
-      "profileImagePath": "string",
-      "twelfthMarks": null,
-      "tenthMarks": null,
-      "studentBio": "string",
-      "courseId": null,
-      "streamId": null,
-      "createdDateTime": "2022-03-02T06:19:46.085Z"
-    };
+    e.preventDefault();
+    // const FormObj1 = {
+    //   "id": 0,
+    //   "firstName": "string",
+    //   "lastName": "string",
+    //   "gender": "string",
+    //   "dob": "string",
+    //   "email": "string",
+    //   "phone": "string",
+    //   "permanentAddress": "string",
+    //   "currentAddress": "string",
+    //   "profileImagePath": "string",
+    //   "twelfthMarks": null,
+    //   "tenthMarks": null,
+    //   "studentBio": "string",
+    //   "courseId": null,
+    //   "streamId": null,
+    //   "createdDateTime": "2022-03-02T06:19:46.085Z"
+    // };
+    var dateTime = new Date().toLocaleString();
+    let formData={
+      "id":parseInt(0),
+      "firstName":firstName,
+      "lastName" : lastName,
+      "gender" :gender,
+      "dob" : dob,
+      "email":email,
+      "phone":phone,
+      "permanentAddress" : perAddress,
+      "currentAddress":currAddress,
+      "profileImagePath":"default.png",
+      "twelfthMarks":parseInt(twelfthMarks),
+      "tenthMarks":parseInt(tenthMarks),
+      "studentBio":studentBio,
+      "courseId" :parseInt(courseId),
+      "streamId":parseInt(streamId),
+      "createdDateTime":dateTime
+    }
+    formData =  JSON.stringify(formData)
     e.preventDefault()
     axios
-    .post("http://localhost:5032/api/Student/AddStudent", FormObj1)
+    .post("http://localhost:5032/api/Student/AddStudent", formData)
     .then(res => console.log(res))
     .catch(err => console.log(err));
     console.log(formData);
@@ -407,18 +424,18 @@ return (
           <div className="row">
             <div className="col">
               <label>First Name:</label>
-              <input name="FirstName"  onChange={handleChange} type="text" className="form-control" />
+              <input name="FirstName"  onChange={e => setFirstName(e.target.value)} type="text" className="form-control" />
             </div>
             <div className="col">
               <label>Last Name:</label>
-              <input name="LastName" type="text"  onChange={handleChange} className="form-control" />
+              <input name="LastName" type="text"  onChange={e => setLastName(e.target.value)} className="form-control" />
             </div>
           </div>
           <br/>
           <div className="row">
             <div className="col">
               <label>Gender:</label>
-              <select name="Gender"  onChange={handleChange} className="form-select">
+              <select name="Gender"  onChange={e => setGender(e.target.value)} className="form-select">
                 <option >Choose Gender</option>
                 <option defaultValue="Male">Male</option>
                 <option defaultValue="Female">Female</option>
@@ -426,7 +443,7 @@ return (
             </div>
             <div className="col">
               <label>Date of Birth:</label>
-              <input name="DOB" type="date"   onChange={handleChange} className="form-control" />
+              <input name="DOB" type="date"   onChange={e => setDOB(e.target.value)} className="form-control" />
             </div>
           </div>
         </div>
@@ -438,12 +455,12 @@ return (
           <div className="row">
             <div className="col">
               <label>Email:</label>
-              <input name="Email" type="text" onChange={handleChange} className="form-control" />
+              <input name="Email" type="text" onChange={e => setEmail(e.target.value)} className="form-control" />
             </div>
             <div className="col">
               <label>Phone:</label>
               <input
-                name="Phone"  onChange={handleChange}
+                name="Phone"  onChange={e => setPhone(e.target.value)}
                 type="number"
                 className="form-control"
               />
@@ -462,7 +479,7 @@ return (
               <br />
               <br />
               <textarea
-                name="PermanentAddress" onChange={handleChange}
+                name="PermanentAddress" onChange={e => setPerAddress(e.target.value)}
                 className="form-control"
                 id="PerAddress"
               ></textarea>
@@ -478,7 +495,7 @@ return (
                 Same as permanent address
               </div>
               <textarea 
-                name="CurrentAddress" onChange={handleChange}
+                name="CurrentAddress" onChange={e => setCurrAddress(e.target.value)}
                 id="CurrAdd" 
                 className="form-control"
               ></textarea>
@@ -494,7 +511,7 @@ return (
             <div className="col">
               <label>Undergraduate Course</label>
               <br />
-              <select name="CourseId" id="UgCourse" onChange={handleChange} className="form-select">
+              <select name="CourseId" id="UgCourse" onChange={e => setCourseId(e.target.value)} className="form-select">
                 <option >Choose Course</option>
                 <option defaultValue="1">1</option>
                 <option defaultValue="2">2</option>
@@ -506,7 +523,7 @@ return (
             <div className="col">
               <label>Stream</label>
               <br />
-              <select className="form-select" id="Stream" onChange={handleChange}  name="StreamId">
+              <select className="form-select" id="Stream" onChange={e => setStreamId(e.target.value)}  name="StreamId">
                 <option >Choose Stream</option>
                 <option defaultValue="1">1</option>
                 <option defaultValue="2">2</option>
@@ -521,12 +538,12 @@ return (
             <div className="col">
               <label>12th Percentage</label>
               <br />
-              <input type="number" name="TwelfthMarks" onChange={handleChange} className="form-control"  />
+              <input type="number" name="TwelfthMarks" onChange={e => setTwelfthMarks(e.target.value)} className="form-control"  />
             </div>
             <div className="col">
               <label>10th Percentage</label>
               <br />
-              <input name="TenthMarks" type="number" onChange={handleChange} className="form-control"  />
+              <input name="TenthMarks" type="number" onChange={e => setTenthMarks(e.target.value)} className="form-control"  />
             </div>
           </div>
         </div>
@@ -538,7 +555,7 @@ return (
             <div className="col">
               <textarea
                 name="StudentBio" 
-                className="form-control" onChange={handleChange}
+                className="form-control" onChange={e => setStudentBio(e.target.value)}
                 rows="5"
                 placeholder="Student Bio"
               ></textarea>
@@ -547,7 +564,7 @@ return (
         </div>
         <div className="modal-footer">
           <Button variant="secondary" onClick={onHide}>Close</Button>
-          <Button variant="primary" type="submit" onSubmit={handleSubmit} >Save</Button>
+          <Button variant="primary" type="submit" onSubmit={ (e) => {handleSubmit(e)}} >Save</Button>
         </div>
       </form>
     </div>

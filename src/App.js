@@ -22,8 +22,8 @@ function DataModalApp({ data }) {
   return (
     <>
       <Button
-        variant="info"
-        style={{ padding: "8px 9px", color: "white" }}
+        variant="primary"
+        style={{ padding: "8px 9px", color: "white" , marginRight:'10px' }}
         onClick={setModal}
       >
         <EyeFill /> View
@@ -181,9 +181,6 @@ function App() {
               })}
           </tbody>
         </table>
-      </div>
-      <div className="container col-md-6">
-      <InputBox/>
       </div>
 
     </>
