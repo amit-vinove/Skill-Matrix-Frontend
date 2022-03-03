@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -53,6 +54,10 @@ option:hover{
 .modal{
   border-top:2px solid #3459e6
 }
+.modal-content{
+  border-radius: 10px 50px 15px 15px !important;
+
+}
 .modal-body {
   border-top: 4px solid #3459e6;
   border-radius: 10px 50px 15px 15px;
@@ -60,9 +65,7 @@ option:hover{
 .modal-footer{
   background-color:unset;
 }
-  h5 {
-      font-weight: 300 !important
-  }
+
 input{
   font-weight:500 !important;
   color:black !important;
@@ -78,6 +81,8 @@ textarea {
   color: black !important;
   font-size: 15px !important;
 }
-
+h5{
+  color: black !important;
+}
 
 
