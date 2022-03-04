@@ -3,7 +3,8 @@ import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import titleImg from "./assets/idcard.png";
-import "./App.css";
+import appCss from './styles/App.css';
+
 
 function DataModal(props) {
   return (
@@ -329,7 +330,7 @@ function EditModal({data,show,onHide}) {
   );
 }
 
-function CreateModal({show,onHide}) {
+function CreateModal({show,onHide,dataArr,addDataf}) {
   const [firstName , setFirstName] = useState("")
   const [lastName , setLastName] = useState("")
   const [ gender, setGender] = useState("")
@@ -353,27 +354,9 @@ function CreateModal({show,onHide}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const FormObj1 = {
-    //   "id": 0,
-    //   "firstName": "string",
-    //   "lastName": "string",
-    //   "gender": "string",
-    //   "dob": "string",
-    //   "email": "string",
-    //   "phone": "string",
-    //   "permanentAddress": "string",
-    //   "currentAddress": "string",
-    //   "profileImagePath": "string",
-    //   "twelfthMarks": null,
-    //   "tenthMarks": null,
-    //   "studentBio": "string",
-    //   "courseId": null,
-    //   "streamId": null,
-    //   "createdDateTime": "2022-03-02T06:19:46.085Z"
-    // };
-    var dateTime = new Date().toLocaleString();
+    var dateTime = new Date().toISOString();
     let formData={
-      "id":parseInt(0),
+      "id":0,
       "firstName":firstName,
       "lastName" : lastName,
       "gender" :gender,
@@ -383,20 +366,24 @@ function CreateModal({show,onHide}) {
       "permanentAddress" : perAddress,
       "currentAddress":currAddress,
       "profileImagePath":"default.png",
-      "twelfthMarks":parseInt(twelfthMarks),
-      "tenthMarks":parseInt(tenthMarks),
+      "twelfthMarks":Number(twelfthMarks),
+      "tenthMarks":Number(tenthMarks),
       "studentBio":studentBio,
-      "courseId" :parseInt(courseId),
-      "streamId":parseInt(streamId),
+      "courseId" :Number(courseId),
+      "streamId":Number(streamId),
       "createdDateTime":dateTime
     }
-    formData =  JSON.stringify(formData)
+   
     e.preventDefault()
     axios
     .post("http://localhost:5032/api/Student/AddStudent", formData)
-    .then(res => console.log(res))
+    .then(res => {
+      const data = res.data;
+      dataArr.push(data)
+      console.log(dataArr)
+      addDataf(dataArr)
+    })
     .catch(err => console.log(err));
-    console.log(formData);
   };
 
 return (
@@ -564,7 +551,7 @@ return (
         </div>
         <div className="modal-footer">
           <Button variant="secondary" onClick={onHide}>Close</Button>
-          <Button variant="primary" type="submit" onSubmit={ (e) => {handleSubmit(e)}} >Save</Button>
+          <Button variant="primary" type="submit" onClick={onHide} onSubmit={ (e) => {handleSubmit(e)}} >Save</Button>
         </div>
       </form>
     </div>

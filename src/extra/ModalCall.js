@@ -65,7 +65,7 @@ function EditModalApp({ data }) {
     );
   }
 
-  function CreateModalApp(){
+  function CreateModalApp({dataArr,addDataf}){
     const [modalShow, setModalShow] = React.useState(false);
   
     const setModal = () => {
@@ -81,9 +81,11 @@ function EditModalApp({ data }) {
         <PlusCircle />  Fill New Form
         </Button>
   
-        <CreateModal
+        <CreateModal 
           show={modalShow}
           onHide={() => setModalShow(false)}
+          dataArr={dataArr}
+          addDataf={addDataf}
         />
       </>
     );
@@ -94,6 +96,7 @@ function EditModalApp({ data }) {
 function App() {
   const studentURL = "http://localhost:5032/api/Student/GetAllStudents";
   const [data, setData] = useState([]);
+  const [csdata,setCsdata]=useState([]);
 
   // console.log(data[0])
   useEffect(() => {
@@ -102,6 +105,20 @@ function App() {
       // console.log(response.data)
     });
   }, []);
+
+  useEffect(()=>{
+    setData(csdata);
+  },[csdata])
+
+  function addDataf(data1){
+
+    // console.log(data1);
+    setCsdata(data1);
+    console.log(csdata)
+
+  }
+
+  
 
   return (
     <>
@@ -114,7 +131,7 @@ function App() {
           <br />
           <br />
           <div className="col-6 text-end">
-          <CreateModalApp/>
+          <CreateModalApp dataArr={data} addDataf={addDataf}/>
           </div>
         </div>
 
