@@ -2,7 +2,6 @@ import React from "react";
 import {Button, FormControl,InputGroup} from "react-bootstrap";
 import bgImg from "../images/2474247.jpg"
 import logo from "../images/logo.jpg"
-import TextField from '@material-ui/core/TextField';
 
 function loginPage() {
   return (
@@ -24,10 +23,8 @@ function loginPage() {
   <InputGroup size="lg" className="mb-3">
     <FormControl aria-label="Large" placeholder="Password" style={{padding:'15px'}}  aria-describedby="inputGroup-sizing-sm" />
   </InputGroup>
-  <div style={{display:'flex'}}>
-  <Button style={{width:'150px'}} variant="primary" type="submit" >Login</Button>
-  <h6 style={{marginLeft:'100px'}}>Forgot Password ?</h6>
-  </div>
+  <Button style={{width:'150px', fontSize:'20px'}} variant="primary" type="submit" >Login</Button>
+  <h6 className="mt-3">Forgot Password ?</h6>
 
             </div>
             </form>
