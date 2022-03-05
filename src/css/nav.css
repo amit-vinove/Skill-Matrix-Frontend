@@ -1,0 +1,20 @@
+.sideNav{
+    margin-left: inherit;
+    text-align: center;
+}
+ul {     
+    width: 110px;
+    position: fixed;
+    height: 890px;
+    list-style-type: none;
+    margin-left: inherit;
+    padding-left: inherit;
+    background-color: #273143;
+    color: white;}
+li{
+    padding: 10px;
+}
+li:hover{
+    background-color: #394253;
+    cursor: pointer;
+}

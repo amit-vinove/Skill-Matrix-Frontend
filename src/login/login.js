@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, FormControl,InputGroup} from "react-bootstrap";
-import bgImg from "../images/2474247.jpg"
+import bgImg from "../images/vinoveBg.jpg"
 import logo from "../images/logo.jpg"
 
 function loginPage() {
@@ -8,13 +8,13 @@ function loginPage() {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-9">
+          <div className="col-md-9" style={{marginLeft:'inherit'}}>
             <img src={bgImg}/>
           </div>
           <div className="col-md-3">
               <img src={logo} style={{height:'100px',width:'200px',marginTop:'150px',marginLeft:'10px'}}/>
           <form>
-          <div style={{marginTop : '30%',padding:'5%'}}>
+          <div style={{marginTop : '10%',padding:'5%'}}>
             <h3 className="mb-1">Login</h3>
             <p className="mb-4">Please enter your Username and Password</p>
               <InputGroup size="lg" className="mb-3" >

@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import NavigationBar from './navBar/topBar';
-import LoginPage from './login/login'
+import HomePage from './Home/home'
+import Sidebar from './navBar/sidebar'
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <NavigationBar/>
-    <LoginPage/>
+    <HomePage/>
   </React.StrictMode>,
   document.getElementById('root')
 );
