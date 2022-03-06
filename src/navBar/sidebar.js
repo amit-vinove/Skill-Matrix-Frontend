@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
     <>
       <ul>
+      <Link to="/home">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -11,6 +13,7 @@ function Sidebar() {
           />
           <h6>Home</h6>
         </li>
+        </Link>
         <li>
           <img
             style={{ height: "30px", width: "30px" }}

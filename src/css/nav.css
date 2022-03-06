@@ -8,7 +8,7 @@ ul {
     height: 890px;
     list-style-type: none;
     margin-left: inherit;
-    padding-left: inherit;
+    padding-left: unset !important;
     background-color: #273143;
     color: white;}
 li{
@@ -17,4 +17,15 @@ li{
 li:hover{
     background-color: #394253;
     cursor: pointer;
+}
+a{
+    color: white !important;
+    text-decoration: none !important;
+}
+.dropdown-menu{
+    background-color: #212529 !important;
+    color: white !important;
+}
+.dropdown-item:hover{
+    color: black !important;
 }
