@@ -5,7 +5,7 @@
 ul {     
     width: 110px;
     position: fixed;
-    height: 890px;
+    height: 100%;
     list-style-type: none;
     margin-left: inherit;
     padding-left: unset !important;

@@ -14,6 +14,8 @@ function Sidebar() {
           <h6>Home</h6>
         </li>
         </Link>
+
+        <Link to="/profile">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -21,6 +23,9 @@ function Sidebar() {
           />
           <h6>Me</h6>
         </li>
+        </Link>
+        
+        <Link to="/employee">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -28,6 +33,7 @@ function Sidebar() {
           />
           <h6> Employee </h6>
         </li>
+        </Link>
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
