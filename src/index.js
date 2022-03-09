@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import HomePage from './Home/home'
 import LoginPage from './login/login';
 import ProfilePage from './Profile/profile';
+import indexCss from "./css/index.css";
+
 import {
   BrowserRouter,
   Routes,
@@ -15,7 +17,7 @@ ReactDOM.render(
   <React.StrictMode>
   <BrowserRouter>
   <Routes>
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/" element={<LoginPage />} activeClassName="active" />
     </Routes>
     <Routes>
       <Route path="/home" element={<HomePage />} />

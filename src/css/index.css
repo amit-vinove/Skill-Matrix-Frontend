@@ -27,3 +27,6 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #273143; 
 }
+.active{
+  color:#3ba2ff;
+ }

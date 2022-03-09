@@ -1,6 +1,7 @@
 .sideNav{
     margin-left: inherit;
     text-align: center;
+    width: 7.1% !important;
 }
 ul {     
     width: 110px;
