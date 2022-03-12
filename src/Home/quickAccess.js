@@ -17,7 +17,7 @@ function QuickAccess() {
   const [time, setTime] = React.useState("");
   const [event, setEvent] = React.useState("");
 
-  const calenderURL = `https://calendarific.com/api/v2/holidays?&api_key=274e720acef9f69b5abf7149ab3ef69d54b4b764&country=IN&year=${year}&day=18&month=${month}`;
+  const calenderURL = `https://calendarific.com/api/v2/holidays?&api_key=274e720acef9f69b5abf7149ab3ef69d54b4b764&country=IN&year=${year}&day=25&month=12`;
 
   useEffect(() => {
     axios.get(calenderURL).then((response) => {
