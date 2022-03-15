@@ -18,7 +18,7 @@ function Feeds() {
     let obj = [...feedsDB];
     obj.push(feed);
     setFeedsDB(obj);
-    feedBox.innerHTML= "";
+    e.target.reset();
   };
 
   return (
@@ -38,7 +38,7 @@ function Feeds() {
                   }}
                   style={{ border: "none" }}
                   placeholder="Write your announcement here..."
-                  as="textarea" id="feedBox"
+                  as="textarea" 
                   rows={5}
                 />
               </Form.Group>

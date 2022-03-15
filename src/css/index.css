@@ -27,9 +27,6 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #273143; 
 }
-.active{
-  color:#3ba2ff;
- }
  p{
    margin-bottom: unset !important;
    font-size: 12px;

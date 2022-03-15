@@ -12,6 +12,7 @@ import {
   Route,
 } from "react-router-dom";
 import EmployeePage from './Employee/employee';
+import TeamsPage from './Teams/teams';
 
 
 ReactDOM.render(
@@ -28,6 +29,9 @@ ReactDOM.render(
     </Routes>
     <Routes>
       <Route path="/employee" element={<EmployeePage />} />
+    </Routes>
+    <Routes>
+      <Route path="/teams" element={<TeamsPage />} />
     </Routes>
     <Routes>
       <Route path="/todo" element={<TodoPage />} />

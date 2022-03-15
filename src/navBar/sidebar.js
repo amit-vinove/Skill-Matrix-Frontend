@@ -1,21 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link , NavLink } from "react-router-dom";
+import indexCss from '../css/index.css'
 
 function Sidebar() {
   return (
     <>
       <ul>
-      <Link to="/home">
-        <li>
+        <NavLink to="/home" >
+          <li>
           <img
             style={{ height: "30px", width: "30px" }}
             src="https://img.icons8.com/material-rounded/148/ffffff/home.png"
           />
           <h6>Home</h6>
-        </li>
-        </Link>
+          </li>
+          </NavLink>
 
-        <Link to="/profile">
+        <NavLink to="/profile">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -23,9 +24,9 @@ function Sidebar() {
           />
           <h6>Me</h6>
         </li>
-        </Link>
+        </NavLink>
         
-        <Link to="/employee">
+        <NavLink to="/employee">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -33,9 +34,9 @@ function Sidebar() {
           />
           <h6> Employee </h6>
         </li>
-        </Link>
+        </NavLink>
 
-        <Link to="/teams">
+        <NavLink to="/teams">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -43,9 +44,9 @@ function Sidebar() {
           />
           <h6> Teams </h6>
         </li>
-        </Link>
+        </NavLink>
 
-        <Link to="/todo">
+        <NavLink to="/todo">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -53,7 +54,7 @@ function Sidebar() {
           />
           <h6> To Do </h6>
         </li>
-        </Link>
+        </NavLink>
       </ul>
     </>
   );

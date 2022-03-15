@@ -30,3 +30,6 @@ a{
 .dropdown-item:hover{
     color: black !important;
 }
+.active > li{
+background-color: #394253;
+}
