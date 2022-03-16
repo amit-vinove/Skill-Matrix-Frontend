@@ -1,0 +1,3 @@
+11/03/22 - Created API service & Controller for Image Uploading Feature along with proper implementation and basic testing
+14/03/22 - Updated the Response Method for Every Service and Controller 
+15/03/22 - Created Get API for State Details by Creating View Model and Methods in Service and Controller
