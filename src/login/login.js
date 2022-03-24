@@ -4,38 +4,50 @@ import bgImg from "../images/vinoveBg.jpg";
 import logo from "../images/logo.jpg";
 import { Password } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import sidebar from "../navBar/sidebar"
 
-function LoginPage() {
-  const userDB={
-    username:'Amitk6228',
-    password:'Amit123'
-  }
+function LoginPage({loggedIn,setLoggedIn}) {
+  localStorage.clear();
   let navigate = useNavigate(); 
+
   const [username , setUsername] = useState("")
   const [password,setPassword] = useState("")
-
-  const handleSubmit=(e)=>{
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let formData={
+      "userId":0,
+      "username":username,
+      "password":password
+    }
+   
     e.preventDefault()
-    if(username == userDB.username & password==userDB.password){
-      console.log("Logged Successfully")
-      console.log(username,password)
+    axios
+    .post("http://localhost:5032/api/User/Login", formData)
+    .then(res => {
+      const data = res.data;
+      console.log(data)
+      if(data.responseCode == 200){
+      console.log("Logged in Successfully")
+      localStorage.setItem("LoggedIn", true);
+      localStorage.setItem("User", username);
+      console.log(loggedIn)
       let path = `/home`; 
       navigate(path);
     }
-    else{
-      console.log("Invalid User")
-    }
-  }
-
+    })
+    .catch(err => console.log(err));
+  };
   return (
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-9" style={{ marginLeft: "inherit" }}>
+          {/* <div className="col-md-9" style={{ marginLeft: "inherit" }}>
             <img src={bgImg} />
-          </div>
+          </div> */}
           <div className="col-md-3">
-            <img
+            {/* <img
               src={logo}
               style={{
                 height: "100px",
@@ -43,14 +55,14 @@ function LoginPage() {
                 marginTop: "150px",
                 marginLeft: "10px",
               }}
-            />
+            /> */}
             <form onSubmit={handleSubmit}>
               <div style={{ marginTop: "10%", padding: "5%" }}>
                 <h3 className="mb-1">Login</h3>
                 <p className="mb-4">Please enter your Username and Password</p>
                 <InputGroup size="lg" className="mb-3">
                   <FormControl
-                    aria-label="Large" onChange={e => setUsername(e.target.value)}
+                    aria-label="Large" onChange={e => setUsername(e.target.value)} 
                     placeholder="Username"
                     style={{ padding: "15px" }}
                     aria-describedby="inputGroup-sizing-sm"

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NavigationBar() {
+  const loggedUsername = localStorage.getItem('User')
   return (
 <Navbar bg="dark" variant="dark"  className='p-1' expand="md" style={{position:'sticky'}} fixed="top">
     <Navbar.Brand style={{fontWeight:'500'}}>
@@ -16,7 +17,7 @@ function NavigationBar() {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ms-auto">
-        <NavDropdown title="Amit Kumar" id="basic-nav-dropdown">
+        <NavDropdown title={loggedUsername} id="basic-nav-dropdown">
           <NavDropdown.Item href="#" >Profile</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item>

@@ -27,7 +27,7 @@ function ProfilePage() {
                 <Card.Body>
                     <h2 style={{fontWeight : '400'}}>Amit Kumar</h2>
                     <div className="row">
-                      <div className="col-md-1"><p><img src="https://img.icons8.com/material-rounded/48/000000/marker.png" style={{height:'20px',width:'20px'}}/>Gurugram</p> </div>
+                      <div className="col-md-1"><img src="https://img.icons8.com/material-rounded/48/000000/marker.png" style={{height:'20px',width:'20px'}}/>Gurugram</div>
                       <div className="col-md-3"><p style={{textAlign:'center'}}><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-email-interface-kiranshastry-lineal-kiranshastry-1.png" style={{height:'20px',width:'20px'}}/>amit.kumar3@mail.vinove.com</p> </div>
                       <div className="col-md-2"><p><img src="https://img.icons8.com/ios-glyphs/30/000000/phone--v1.png" style={{height:'20px',width:'20px'}}/>12345678</p> </div>
                     </div>

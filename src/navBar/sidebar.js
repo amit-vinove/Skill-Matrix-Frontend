@@ -2,11 +2,12 @@ import React from "react";
 import { Link , NavLink } from "react-router-dom";
 import indexCss from '../css/index.css'
 
+
 function Sidebar() {
   return (
     <>
       <ul>
-        <NavLink to="/home" >
+        <NavLink to="/home" as="li" >
           <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -16,7 +17,7 @@ function Sidebar() {
           </li>
           </NavLink>
 
-        <NavLink to="/profile">
+        <NavLink to="/profile" as="li">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -26,7 +27,7 @@ function Sidebar() {
         </li>
         </NavLink>
         
-        <NavLink to="/employee">
+        <NavLink to="/employee" as="li">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
@@ -36,17 +37,17 @@ function Sidebar() {
         </li>
         </NavLink>
 
-        <NavLink to="/teams">
         <li>
+        <NavLink to="/teams" as="li">
           <img
             style={{ height: "30px", width: "30px" }}
             src="https://img.icons8.com/material-rounded/148/ffffff/conference-call.png"
           />
           <h6> Teams </h6>
-        </li>
         </NavLink>
+        </li>
 
-        <NavLink to="/todo">
+        <NavLink to="/todo" as="li">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
