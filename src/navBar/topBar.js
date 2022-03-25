@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NavigationBar() {
   const loggedUsername = localStorage.getItem('User')
+  const logout = () =>{
+    localStorage.clear()
+  }
   return (
 <Navbar bg="dark" variant="dark"  className='p-1' expand="md" style={{position:'sticky'}} fixed="top">
     <Navbar.Brand style={{fontWeight:'500'}}>
@@ -18,9 +21,9 @@ function NavigationBar() {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ms-auto">
         <NavDropdown title={loggedUsername} id="basic-nav-dropdown">
-          <NavDropdown.Item href="#" >Profile</NavDropdown.Item>
+          <NavDropdown.Item href="/profile" >Profile</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item>
+          <NavDropdown.Item onClick={logout}>
           <Link to="/">Logout</Link>
           </NavDropdown.Item>
         </NavDropdown>

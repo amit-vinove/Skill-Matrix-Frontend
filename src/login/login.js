@@ -8,7 +8,6 @@ import axios from "axios";
 import sidebar from "../navBar/sidebar"
 
 function LoginPage({loggedIn,setLoggedIn}) {
-  localStorage.clear();
   let navigate = useNavigate(); 
 
   const [username , setUsername] = useState("")
@@ -32,7 +31,6 @@ function LoginPage({loggedIn,setLoggedIn}) {
       console.log("Logged in Successfully")
       localStorage.setItem("LoggedIn", true);
       localStorage.setItem("User", username);
-      console.log(loggedIn)
       let path = `/home`; 
       navigate(path);
     }
@@ -43,11 +41,11 @@ function LoginPage({loggedIn,setLoggedIn}) {
     <>
       <div className="container-fluid">
         <div className="row">
-          {/* <div className="col-md-9" style={{ marginLeft: "inherit" }}>
+          <div className="col-md-9" style={{ marginLeft: "inherit" }}>
             <img src={bgImg} />
-          </div> */}
+          </div>
           <div className="col-md-3">
-            {/* <img
+            <img
               src={logo}
               style={{
                 height: "100px",
@@ -55,7 +53,7 @@ function LoginPage({loggedIn,setLoggedIn}) {
                 marginTop: "150px",
                 marginLeft: "10px",
               }}
-            /> */}
+            />
             <form onSubmit={handleSubmit}>
               <div style={{ marginTop: "10%", padding: "5%" }}>
                 <h3 className="mb-1">Login</h3>

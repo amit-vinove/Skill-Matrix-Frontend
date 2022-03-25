@@ -21,7 +21,8 @@ function ProfilePage() {
               <Card >
                 <div className="row">
                 <div className="col-md-2">
-                <img src={profileImg} style={{height:'270px',width:'270px'}}/>
+                <img src="https://img.icons8.com/bubbles/160/000000/user.png" style={{height:'220px',width:'250px',marginRight:'10px'}}/>
+
                 </div>
                 <div className="col-md-10">
                 <Card.Body>
