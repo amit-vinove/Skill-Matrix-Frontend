@@ -5,53 +5,31 @@ import navCss from "../css/nav.css";
 import indexCss from "../css/index.css";
 import { Card, Button, InputGroup, FormControl } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
+import axios from "axios";
 
 
 function TeamsPage() {
+  const employeeURL = "http://localhost:5032/api/Employee/GetEmployeeByTeam?teamId=1";
+  const [empDB, setEmpDB] = useState([]);
   const [searchvalues,setSearchvalues]=useState([]);
-  const empDB=[
-    {
-    name:'Amit Kumar',
-    designation:'Software Developer',
-    department :'Operation MS-.Net',
-    location : 'Gurugram',
-    email :'amit.kumar3@mail.vinove.com'
 
-  },
-  {
-    name:'Anuj Kumar',
-    designation:'Associate Software Developer',
-    department :'Operation MS-.Net',
-    location : 'Gurugram',
-    email :'amit.kumar3@mail.vinove.com'
+useEffect(() => {
+  axios.get(employeeURL).then((response) => {
+    setEmpDB(response.data);
+    setSearchvalues(response.data);
+    console.log(response.data)
+  });
+}, []);
+console.log(empDB)
+let Peers = empDB.length
 
-  },
-  {
-    name:'Ankur Kumar',
-    designation:'Junior Associate Software Developer',
-    department :'Operation MS-.Net',
-    location : 'Gurugram',
-    email :'amit.kumar3@mail.vinove.com'
 
-  },
-  {
-    name:'Ajay Kumar',
-    designation:'Senior Software Developer',
-    department :'Operation MS-.Net',
-    location : 'Gurugram',
-    email :'amit.kumar3@mail.vinove.com'
-
-  }
-]
 const search= (e)=>{
-  
-  const result = [...empDB].filter(emp => ((emp.name).toLowerCase()).includes((e.target.value).toLowerCase()));
+  const result = [...empDB].filter(emp => ((emp.employeeName).toLowerCase()).includes((e.target.value).toLowerCase()));
   setSearchvalues(result);
   console.log(searchvalues);
 }
-useEffect(()=>{
-  setSearchvalues(empDB);
-},[])
+
   return (
     <>
       <Navbar />
@@ -68,13 +46,13 @@ useEffect(()=>{
                 marginBottom: "20px",
               }}
             >
-              My Peers
+              My Peers ({Peers})
             </h2>
             <Card>
               <Card.Body>
                 <div className="row">
                   <div className="col-md-1" style={{ lineHeight: "35px" }}>
-                    MS-.NET
+                    MS .Net Team
                   </div>
                   <div className="col-md-1" style={{ lineHeight: "35px" }}>
                     Location
@@ -93,7 +71,7 @@ useEffect(()=>{
               </Card.Body>
             </Card>
             <br/>
-            <div style={{display:'flex', justifyContent:'space-between'}}>
+            <div style={{display:'grid',gridTemplateColumns: '1fr 1fr 1fr 1fr'}} className='col-md-12'>
             {
              searchvalues.map((data,index)=>(
               <Card className="empCard" key={index} >
@@ -101,9 +79,9 @@ useEffect(()=>{
                 <div style={{display:'flex'}}>
                 <img src="https://img.icons8.com/bubbles/100/000000/user.png" style={{height:'150px',width:'150px',marginRight:'10px'}}/>
                 <Card.Text>
-                  <h3>{data.name}</h3>
+                  <h3>{data.employeeName}</h3>
                   <p style={{fontSize:'16px'}}>{data.designation}</p>
-                  <p>Department : {data.department}</p>
+                  <p>Department : {data.employeeTeam}</p>
                   <p>Location : {data.location}</p>
                   <p>Email : {data.email}</p>
                 </Card.Text>
@@ -111,7 +89,7 @@ useEffect(()=>{
               </Card.Body>
             </Card>
              ))
-            } 
+            }
             </div>
           </div>
         </div>
