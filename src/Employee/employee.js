@@ -9,7 +9,7 @@ import axios from "axios";
 
 
 function EmployeePage() {
-  const employeeURL = "http://localhost:5032/api/Employee/GetAllEmployee";
+  const employeeURL = "http://localhost:5032/api/Employee/GetEmployeeDirectory";
   const [empDB, setEmpDB] = useState([]);
   const [searchvalues,setSearchvalues]=useState([]);
 //   const empDB=[
@@ -57,7 +57,7 @@ console.log(empDB)
 
 
 const search= (e)=>{
-  const result = [...empDB].filter(emp => ((emp.employeeName).toLowerCase()).includes((e.target.value).toLowerCase()));
+  const result = [...empDB].filter(emp => ((emp.employeeFirstName).toLowerCase()).includes((e.target.value).toLowerCase()));
   setSearchvalues(result);
   console.log(searchvalues);
 }
@@ -111,7 +111,7 @@ const search= (e)=>{
                 <div style={{display:'flex'}}>
                 <img src="https://img.icons8.com/bubbles/100/000000/user.png" style={{height:'150px',width:'150px',marginRight:'10px'}}/>
                 <Card.Text>
-                  <h3>{data.employeeName}</h3>
+                  <h3>{data.employeeFirstName} {data.employeeLastName}</h3>
                   <p style={{fontSize:'16px'}}>{data.designation}</p>
                   <p>Department : {data.employeeTeam}</p>
                   <p>Location : {data.location}</p>

@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../navBar/sidebar";
 import Navbar from "../navBar/topBar";
 import navCss from "../css/nav.css";
 import indexCss from "../css/index.css";
 import { Card , Button} from 'react-bootstrap'
 import profileImg from '../images/2474247.jpg'
+import axios from "axios";
 
 function ProfilePage() {
+  const loggedUsername = localStorage.getItem('User')
+  const profileURL =  `http://localhost:5032/api/Employee/GetEmployeeByUsername?username=${loggedUsername}`
+  const [profile , setProfile] = useState([])
+
+  useEffect(()=>{
+    axios.get(profileURL).then((response)=>{
+      setProfile(response.data)
+    })
+  },[])
+
   return (
     <>
       <Navbar />
@@ -26,11 +37,13 @@ function ProfilePage() {
                 </div>
                 <div className="col-md-10">
                 <Card.Body>
-                    <h2 style={{fontWeight : '400'}}>Amit Kumar</h2>
+                    <h2 style={{fontWeight : '400'}}>{profile.employeeFirstName} {profile.employeeLastName}</h2>
                     <div className="row">
-                      <div className="col-md-1"><img src="https://img.icons8.com/material-rounded/48/000000/marker.png" style={{height:'20px',width:'20px'}}/>Gurugram</div>
-                      <div className="col-md-3"><p style={{textAlign:'center'}}><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-email-interface-kiranshastry-lineal-kiranshastry-1.png" style={{height:'20px',width:'20px'}}/>amit.kumar3@mail.vinove.com</p> </div>
-                      <div className="col-md-2"><p><img src="https://img.icons8.com/ios-glyphs/30/000000/phone--v1.png" style={{height:'20px',width:'20px'}}/>12345678</p> </div>
+                      <div className="col-md-1"><img src="https://img.icons8.com/material-rounded/48/000000/marker.png" style={{height:'20px',width:'20px'}}/>{profile.location}</div>
+                      <div className="col-md-3"><p style={{textAlign:'center'}}><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-email-interface-kiranshastry-lineal-kiranshastry-1.png"
+                       style={{height:'20px',width:'20px'}}/>{profile.email}</p> </div>
+                      <div className="col-md-2"><p><img src="https://img.icons8.com/ios-glyphs/30/000000/phone--v1.png" 
+                      style={{height:'20px',width:'20px'}}/>{profile.phone}</p> </div>
                     </div>
                     <hr/>
                     <div className="row">
@@ -41,11 +54,11 @@ function ProfilePage() {
                       <div className="col-md-1"><label style={{fontSize:'12px'}}>EMP No</label></div>
                     </div>
                     <div className="row">
-                      <div className="col-md-2"><p style={{fontSize:'15px'}}>Junior Associate Software Developer</p></div>
-                      <div className="col-md-1"><p style={{fontSize:'15px'}}>MS .NET</p></div>
+                      <div className="col-md-2"><p style={{fontSize:'15px'}}>{profile.designation}</p></div>
+                      <div className="col-md-1"><p style={{fontSize:'15px'}}>{profile.employeeTeam}</p></div>
                       <div className="col-md-1"><p style={{fontSize:'15px'}}>Services</p></div>
-                      <div className="col-md-1"><p style={{fontSize:'15px'}}>Vikas Kaushik</p></div>
-                      <div className="col-md-1"><p style={{fontSize:'15px'}}>V5990</p></div>
+                      <div className="col-md-1"><p style={{fontSize:'15px'}}>{profile.employeeManager}</p></div>
+                      <div className="col-md-1"><p style={{fontSize:'15px'}}>{profile.employeeNumber}</p></div>
                       <div className="col-md-6"><Button style={{float:'right'}} variant="primary">Edit Details</Button></div>
                     </div>
                     <hr/>
@@ -66,21 +79,21 @@ function ProfilePage() {
                   <div className="row">
                     <div className="col">
                       <label>First Name:</label>
-                      <h5>Amit </h5>
+                      <h5>{profile.employeeFirstName}</h5>
                     </div>
                     <div className="col">
                       <label>Last Name:</label>
-                      <h5>Kumar</h5>
+                      <h5>{profile.employeeLastName}</h5>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col">
                       <label>Gender:</label>
-                      <h5>Male</h5>
+                      <h5>{profile.employeeGender}</h5>
                     </div>
                     <div className="col">
                       <label>Date of Birth:</label>
-                      <h5>09/02/2000</h5>
+                      <h5>{profile.employeeDOB}</h5>
                     </div>
                   </div>
                 </div>
@@ -93,11 +106,11 @@ function ProfilePage() {
               <div className="row">
                 <div className="col">
                   <label>Email:</label>
-                  <h5>amit.kumar3@mail.vinove.com</h5>
+                  <h5>{profile.email}</h5>
                 </div>
                 <div className="col">
                   <label>Phone:</label>
-                  <h5>123456789</h5>
+                  <h5>{profile.phone}</h5>
                 </div>
               </div>
             </div>
@@ -109,42 +122,12 @@ function ProfilePage() {
                 <div className="col">
                   <label>Permanent Address:</label>
                   <br />
-                  <h5>D-8 , Delhi , India</h5>
+                  <h5>{profile.permanentAddress}</h5>
                 </div>
                 <div className="col">
                   <label>Current Address:</label>
                   <br />
-                  <h5>D-8 , Delhi , India</h5>
-                </div>
-              </div>
-            </div>
-            <br />
-            <div>
-              <h4 style={{ fontWeight: 500 }}> Educational Details </h4>
-              <hr />
-              <div className="row">
-                <div className="col">
-                  <label>Undergraduate Course:</label>
-                  <br />
-                  <h5>B.tech</h5>
-                </div>
-                <div className="col">
-                  <label>Stream:</label>
-                  <br />
-                  <h5>IT</h5>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col">
-                  <label>12th Percentage:</label>
-                  <br />
-                  <h5>75 %</h5>
-                </div>
-                <div className="col">
-                  <label>10th Percentage:</label>
-                  <br />
-                  <h5>80 %</h5>
+                  <h5>{profile.currentAddress}</h5>
                 </div>
               </div>
             </div>
@@ -154,7 +137,7 @@ function ProfilePage() {
               <hr />
               <div className="row">
                 <div className="col">
-                  <h5>Junior Associate Software Developer</h5>
+                  <h5>{profile.about}</h5>
                 </div>
               </div>
             </div>

@@ -39,7 +39,7 @@ function LoginPage({loggedIn,setLoggedIn}) {
   };
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid" style={{backgroundColor:'white'}}>
         <div className="row">
           <div className="col-md-9" style={{ marginLeft: "inherit" }}>
             <img src={bgImg} />
