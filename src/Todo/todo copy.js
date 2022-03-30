@@ -21,29 +21,29 @@ function TodoPage() {
   const [style, setTodoStyle] = useState("todoStyle");
   const [checkedArr,setCheckedArr]=useState([]);
 
-  // console.log("feedsDB Length :", feedsDB.length);
+  console.log("feedsDB Length :", feedsDB.length);
 
-  // var feedBox = document.getElementById("feedBox");
-  // const AddFeed = (e) => {
-  //   e.preventDefault();
-  //   let obj = [...feedsDB];
-  //   obj.push(feed);
-  //   setFeedsDB(obj);
-  //   e.target.reset();
-  //   setTodoStyle("todoStyle")
-  // };
-  // console.log(feedsDB);
+  var feedBox = document.getElementById("feedBox");
+  const AddFeed = (e) => {
+    e.preventDefault();
+    let obj = [...feedsDB];
+    obj.push(feed);
+    setFeedsDB(obj);
+    e.target.reset();
+    setTodoStyle("todoStyle")
+  };
+  console.log(feedsDB);
 
-  // const deleteTodo = (data) => {
-  //   var tempDB = [...feedsDB];
-
-  //   var feeds = tempDB.filter((element, index) => {
-  //     if (index != data) return element;
-  //   });
-  //   setFeedsDB(feeds);
-  //   console.log(feedsDB);
-  //   setTodoStyle("todoStyle")
-  // };
+  const deleteTodo = (data) => {
+    var tempDB = [...feedsDB];
+    //   var feeds = tempDB.splice(data,1)
+    var feeds = tempDB.filter((element, index) => {
+      if (index != data) return element;
+    });
+    setFeedsDB(feeds);
+    console.log(feedsDB);
+    setTodoStyle("todoStyle")
+  };
 
   const changeStyle=(index)=>{
     const temp=[...checkedArr]
@@ -51,48 +51,6 @@ function TodoPage() {
     setCheckedArr(temp);
     
   }
-
- const handleSubmit = (e)=>{
-   e.preventDefault();
-   let todoData={
-     "todoId":0,
-     "todoName":feed,
-     "userId" :1
-   }
-   axios.post("http://localhost:5032/api/Todo/AddTodo",todoData)
-   .then(res=>{
-     const data = res
-     console.log(data)
-    e.preventDefault();
-    let obj = [...feedsDB];
-    obj.push(res.data);
-    setFeedsDB(obj);
-    e.target.reset();
-   })
-   .catch(err => console.log(err));
- }
- 
- useEffect(()=>{
-   axios.get("http://localhost:5032/api/Todo").then((response)=>{
-     setFeedsDB(response.data)
-   })
- },[])
-//  console.log(feedsDB)
-
- const handleDelete = (todoId)=>{
-  axios.delete(`http://localhost:5032/api/Todo/DeleteTodo?todoId=${todoId}`).then((response)=>{
-    console.log(response)
-    // const todoIndex = todoId-1
-    // var tempDB = [...feedsDB];
-    // var feeds = tempDB.filter((element, index) => {
-    //   if (index != todoIndex) return element;
-    // });
-    var feeds = response.data.data
-    setFeedsDB(feeds)
-    console.log(feeds)
-  })
- }
-  
 
   return (
     <>
@@ -107,7 +65,7 @@ function TodoPage() {
               <h5 style={{ fontWeight: "400" }}>To-Do Tasks</h5>
               <Card style={{ marginTop: "20px", marginBottom: "20px" }}>
                 <Card.Body>
-                  <Form onSubmit={handleSubmit}>
+                  <Form onSubmit={(e) => AddFeed(e)}>
                     <Form.Group
                       className="mb-1"
                       controlId="exampleForm.ControlTextarea1"
@@ -121,7 +79,7 @@ function TodoPage() {
                         rows={3}
                       />
                     </Form.Group>
-                    <Button onSubmit={handleSubmit}
+                    <Button
                       variant="primary"
                       style={{
                         float: "right",
@@ -155,29 +113,29 @@ function TodoPage() {
                   </Card.Body>
                 </Card>
               ) : (
-                feedsDB.map((data) => (
+                feedsDB.map((data, index) => (
                   <Card
-                    key={data.todoId}
+                    key={index}
                     style={{ marginTop: "20px", marginBottom: "20px" }}
                   >
                     <Card.Body>
                       <div className="row">
                         <div className="col-md-10">
-                          <h4 className={checkedArr.includes(data.todoId)?"todoStyleChecked":style}> {data.todoName} </h4>
+                          <h4 className={checkedArr.includes(index)?"todoStyleChecked":style}> {data} </h4>
                         </div>
                         <div className="col-md-1">
                           <Button
                             style={{ float: "right" }}
                             variant="primary"
                             type="button"
-                            onClick={()=>changeStyle(data.todoId)}
+                            onClick={()=>changeStyle(index)}
                           >
                             <CheckSquareFill/>
                           </Button>
                           </div>
                           <div className="col-md-1">
                           <Button
-                            onClick={()=>handleDelete(data.todoId)}
+                            onClick={() => deleteTodo(index)}
                             variant="danger"
                             type="button"
                           >
