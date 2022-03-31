@@ -32,7 +32,7 @@ function TodoPage() {
    axios.post("http://localhost:5032/api/Todo/AddTodo",todoData)
    .then(res=>{
      const data = res
-     console.log(data)
+    //  console.log(data)
     e.preventDefault();
     let obj = [...todosDB];
     obj.push(res.data);
@@ -48,15 +48,19 @@ function TodoPage() {
     setTodosDB(response.data)
    })
  },[])
- console.log(todosDB)
+//  console.log(feedsDB)
 
  const handleDelete = (todoId)=>{
   axios.delete(`http://localhost:5032/api/Todo/DeleteTodo?todoId=${todoId}`).then((response)=>{
     console.log(response)
-    let dataDB = [...todosDB]
-    const filtered = dataDB.filter((item)=>item.todoId !== todoId);
-    setTodosDB(filtered)
-    // console.log(filtered)
+    const todoIndex = todoId-1
+    var tempDB = [...todosDB];
+    var todos = tempDB.filter((element, index) => {
+      if (index != todoIndex) return element;
+    });
+    // var todos = response.data.data
+    setTodosDB(todos)
+    // console.log(todos)
   })
  }
 
