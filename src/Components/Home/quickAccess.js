@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
-import navCss from "../css/nav.css";
-import homeCss from "../css/home.css";
+import navCss from "../../css/nav.css";
+import homeCss from "../../css/home.css";
+import indexCss from "../../css/index.css";
 import Sidebar from "../navBar/sidebar";
 import Card from "react-bootstrap/Card";
-import inboxImg from "../images/inboxImg.svg";
+import inboxImg from "../../images/inboxImg.svg";
 
 function QuickAccess() {
   const date = new Date();

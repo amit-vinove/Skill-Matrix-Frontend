@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button, FormControl, InputGroup, Form } from "react-bootstrap";
-import navCss from "../css/nav.css";
-import homeCss from "../css/home.css";
-import Sidebar from "../navBar/sidebar";
+import navCss from "../../css/nav.css";
+import homeCss from "../../css/home.css";
 import Card from "react-bootstrap/Card";
-import defaultPost from "../images/defaultPost.svg";
+import defaultPost from "../../images/defaultPost.svg";
 
 function Feeds() {
   const [feed, setFeeds] = useState("");

@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import HomePage from "./Home/home";
-import LoginPage from "./login/login";
-import ProfilePage from "./Profile/profile";
-import TodoPage from "./Todo/todo";
+import HomePage from "./Components/Home/home";
+import LoginPage from "./Components/login/login";
+import ProfilePage from "./Components/Profile/profile";
 import indexCss from "./css/index.css";
-
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import EmployeePage from "./Employee/employee";
-import TeamsPage from "./Teams/teams";
 
 function getAuth() {
   const loggedIn = localStorage.getItem("LoggedIn");
@@ -47,36 +43,6 @@ function App() {
           element={
             <RequireAuth redirectTo="/">
               <ProfilePage />
-            </RequireAuth>
-          }
-        />
-      </Routes>
-      <Routes>
-        <Route
-          path="/employee"
-          element={
-            <RequireAuth redirectTo="/">
-              <EmployeePage />
-            </RequireAuth>
-          }
-        />
-      </Routes>
-      <Routes>
-        <Route
-          path="/teams"
-          element={
-            <RequireAuth redirectTo="/">
-              <TeamsPage />
-            </RequireAuth>
-          }
-        />
-      </Routes>
-      <Routes>
-        <Route
-          path="/todo"
-          element={
-            <RequireAuth redirectTo="/">
-              <TodoPage />
             </RequireAuth>
           }
         />

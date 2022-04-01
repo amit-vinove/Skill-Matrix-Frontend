@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../navBar/sidebar";
-import Navbar from "../navBar/topBar";
-import navCss from "../css/nav.css";
-import indexCss from "../css/index.css";
+import Sidebar from "../../Components/navBar/sidebar";
+import Navbar from "../../Components/navBar/topBar";
+import navCss from "../../css/nav.css";
+import homeCss from "../../css/home.css";
 import { Card , Button} from 'react-bootstrap'
-import profileImg from '../images/2474247.jpg'
+import profileImg from '../../images/2474247.jpg'
 import axios from "axios";
 
 function ProfilePage() {

@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
-import navCss from '../css/nav.css'
-import indexCss from '../css/index.css'
+import navCss from "../../css/nav.css";
+import homeCss from "../../css/home.css";
+import indexCss from "../../css/index.css";
 import Sidebar from "../navBar/sidebar";
 import TopBar from "../navBar/topBar";
 import QuickAccess from "./quickAccess";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
-import bgImg from "../images/vinoveBg.jpg";
-import logo from "../images/logo.jpg";
+import bgImg from "../../images/vinoveBg.jpg";
+import logo from "../../images/logo.jpg";
 import { Password } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -16,14 +16,13 @@ function LoginPage({loggedIn,setLoggedIn}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     let formData={
-      "userId":0,
       "username":username,
       "password":password
     }
    
     e.preventDefault()
     axios
-    .post("http://localhost:5032/api/User/Login", formData)
+    .post("https://localhost:7074/api/User/Login", formData)
     .then(res => {
       const data = res.data;
       console.log(data)
