@@ -3,11 +3,12 @@ import Sidebar from "../../Components/navBar/sidebar";
 import Navbar from "../../Components/navBar/topBar";
 import navCss from "../../css/nav.css";
 import homeCss from "../../css/home.css";
-import { Card, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap'
-import profileImg from '../../images/2474247.jpg'
-import axios from "axios";
+import questionsCss from "../../css/questions.css";
+import { Card, Button } from "react-bootstrap";
+import profileImg from "../../images/2474247.jpg";
 import Stack from "@mui/material/Stack";
 import Buttons from "@mui/material/Button";
+import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import './Profile.css';
 
@@ -23,7 +24,8 @@ function ProfilePage() {
   }, [])
   const ratingChanged = (newRating) => {
     console.log(newRating);
-  };
+  }
+
   return (
     <>
       <Navbar />
@@ -140,106 +142,13 @@ function ProfilePage() {
                             />
                           </div>
                         </div>
-                      
-
-
-
-                      {/* <ButtonToolbar aria-label="Toolbar with button groups">
-                      <ButtonGroup aria-label="Basic example" className="me-2">
-                        <Button variant="outline-primary"> <span>0</span> <br/> Not Required</Button>{' '}
-                        </ButtonGroup>
-                        <ButtonGroup aria-label="Basic example" className="me-2">
-                        <Button variant="outline-primary">Primary</Button>{' '}
-
-                        </ButtonGroup>
-                        <ButtonGroup aria-label="Basic example" className="me-2">
-                        <Button variant="outline-primary">Primary</Button>{' '}
-                        </ButtonGroup>
-                        </ButtonToolbar> */}
+                    
                     </Card.Body>
                   </div>
                 </div>
               </Card>
             </div>
-            <br /> <br />
-            <br /> <br />
-            <div className="col-md-8">
-              <Card>
-                <Card.Body>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <div>
-                        <h4 style={{ fontWeight: 500 }}> Primary Details </h4>
-                        <hr />
-                        <div className="row">
-                          <div className="col">
-                            <label>First Name:</label>
-                            <h5>{profile.employeeFirstName}</h5>
-                          </div>
-                          <div className="col">
-                            <label>Last Name:</label>
-                            <h5>{profile.employeeLastName}</h5>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col">
-                            <label>Gender:</label>
-                            <h5>{profile.employeeGender}</h5>
-                          </div>
-                          <div className="col">
-                            <label>Date of Birth:</label>
-                            <h5>{profile.employeeDOB}</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <br />
-                  <div>
-                    <h4 style={{ fontWeight: 500 }}> Contact Details </h4>
-                    <hr />
-                    <div className="row">
-                      <div className="col">
-                        <label>Email:</label>
-                        <h5>{profile.email}</h5>
-                      </div>
-                      <div className="col">
-                        <label>Phone:</label>
-                        <h5>{profile.phone}</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <br />
-                  <div>
-                    <h4 style={{ fontWeight: 500 }}> Address Details </h4>
-                    <hr />
-                    <div className="row">
-                      <div className="col">
-                        <label>Permanent Address:</label>
-                        <br />
-                        <h5>{profile.permanentAddress}</h5>
-                      </div>
-                      <div className="col">
-                        <label>Current Address:</label>
-                        <br />
-                        <h5>{profile.currentAddress}</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <br />
-                  <div>
-                    <h4 style={{ fontWeight: 500 }}>About </h4>
-                    <hr />
-                    <div className="row">
-                      <div className="col">
-                        <h5>{profile.about}</h5>
-                      </div>
-                    </div>
-                  </div>
-                </Card.Body>
-              </Card>
-            </div>
-            <br /><br />
+            <br />
           </div>
         </div>
       </div>
