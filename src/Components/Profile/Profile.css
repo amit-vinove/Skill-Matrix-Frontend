@@ -1,0 +1,20 @@
+.rating_info{
+    font-size: 12px;
+}
+.Rating{
+    
+    padding: 1px 1px;
+    
+}
+.RatingNo{
+    font-size: 15px;
+
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    padding-bottom: 0px;
+  }
+  .skill{
+      padding:18px
+  }
