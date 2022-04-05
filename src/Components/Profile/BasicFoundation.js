@@ -1,25 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Sidebar from "../../Components/navBar/sidebar";
-import Navbar from "../../Components/navBar/topBar";
-import navCss from "../../css/nav.css";
-import homeCss from "../../css/home.css";
-import questionsCss from "../../css/questions.css";
-import { Card, Button } from "react-bootstrap";
-import profileImg from "../../images/2474247.jpg";
-import {MdOutlineCancelPresentation} from 'react-icons/md'
-import {MdSend} from 'react-icons/md'
-import Stack from "@mui/material/Stack";
-import Buttons from "@mui/material/Button";
-import {BsPencilSquare} from 'react-icons/bs'
-import axios from "axios";
-import ReactStars from "react-rating-stars-component";
-import './Profile.css';
-import Skill from "./Skill";
-import {GrLinkNext} from 'react-icons/gr'
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
 
-function ProfilePage() {
-  const loggedUsername = localStorage.getItem('User')
+export default function BasicFoundation() {
+    const loggedUsername = localStorage.getItem('User')
   const profileURL = `http://localhost:5032/api/Employee/GetEmployeeByUsername?username=${loggedUsername}`
   const [profile, setProfile] = useState([])
   const [editform,setEditform]=useState(false);
@@ -35,13 +17,6 @@ const changeComp=()=>{
 const cancelEdit=()=>{
   setEditform(false);
 }
-const navigate = useNavigate();
-const moveNext=()=>{
-  
-navigate('/basicFoundation')
-}
-
-
   return (
     <>
       <Navbar />
@@ -51,14 +26,14 @@ navigate('/basicFoundation')
             <Sidebar />
           </div>
           
-          {editform === false && (
+          {/* {editform === false && (
             <Skill edit={false}/>
         
       )}
       {editform === true && (
             <Skill edit={true}/>
         
-      )}
+      )} */}
           
         </div>
         <div className="rating_info col-md-3">
@@ -147,9 +122,7 @@ navigate('/basicFoundation')
           <hr/>
           <br/>
               <div className='editbutton'>
-              <Buttons variant={"outlined"}  color={"warning"} onClick={changeComp}><BsPencilSquare size={30}/>&nbsp;&nbsp;Edit</Buttons>
-              <br/><br/>
-              <Buttons variant={"outlined"}  color={"info"} onClick={moveNext}><GrLinkNext color={"#1976d2"} size={30}/>&nbsp;&nbsp;Next</Buttons>
+              <Buttons variant={"outlined"}  color={"info"} onClick={changeComp}><BsPencilSquare size={30}/>&nbsp;&nbsp;Edit</Buttons>
               </div>
               
               <br/><br/>
@@ -174,6 +147,5 @@ navigate('/basicFoundation')
       </div>
       
     </>
-  );
+  )
 }
-export default ProfilePage;

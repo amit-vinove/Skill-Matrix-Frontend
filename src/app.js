@@ -5,6 +5,7 @@ import LoginPage from "./Components/login/login";
 import ProfilePage from "./Components/Profile/profile";
 import indexCss from "./css/index.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import BasicFoundation from "./Components/Profile/BasicFoundation";
 
 function getAuth() {
   const loggedIn = localStorage.getItem("LoggedIn");
@@ -43,6 +44,16 @@ function App() {
           element={
             <RequireAuth redirectTo="/">
               <ProfilePage />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/basicFoundation"
+          element={
+            <RequireAuth redirectTo="/">
+              <BasicFoundation />
             </RequireAuth>
           }
         />

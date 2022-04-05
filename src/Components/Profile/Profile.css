@@ -18,3 +18,25 @@
   .skill{
       padding:18px
   }
+  .rating_info{
+    position: fixed;
+    top:20%;
+    right: 55px;
+    background-color: white;
+    color: rgb(0, 0, 0);
+  }
+  .info{
+    
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        padding-bottom: 0px;
+      
+  }
+  .info_rating{
+
+    padding:18px;
+  }
+ 
+  .editbutton{
+    padding: 1px 20px;
+  }
