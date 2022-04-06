@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import HomePage from "./Components/Home/home";
 import LoginPage from "./Components/login/login";
-import ProfilePage from "./Components/Profile/profile";
 import indexCss from "./css/index.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import BasicFoundation from "./Components/Profile/BasicFoundation";
+import GenericSkills from "./Components/Profile/GenericSkills";
 
 function getAuth() {
   const loggedIn = localStorage.getItem("LoggedIn");
@@ -39,10 +40,20 @@ function App() {
       </Routes>
       <Routes>
         <Route
-          path="/profile"
+          path="/GenericSkills"
           element={
             <RequireAuth redirectTo="/">
-              <ProfilePage />
+              <GenericSkills />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/basicFoundation"
+          element={
+            <RequireAuth redirectTo="/">
+              <BasicFoundation />
             </RequireAuth>
           }
         />
