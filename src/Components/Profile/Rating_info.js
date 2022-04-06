@@ -18,6 +18,8 @@ import Skill from "./Skill";
 import { GrLinkNext } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import Rating_info from "./Rating_info";
+import { ArrowRight , ArrowLeft } from 'react-bootstrap-icons';
+
 
 export default function() {
     const ratingChanged = (newRating) => {
@@ -109,11 +111,12 @@ export default function() {
             />
           </div>
         </div>
+        <Button className="prevBtn" variant="outline-primary"><ArrowLeft/> Prev Section</Button>{' '}
+    <Button className="nextBtn" variant="primary">Next Section <ArrowRight/></Button>{' '}
       </Card.Body>
     </Card>
     
       <>
-        <hr />
         {/* <div className="editbutton">
           <Buttons
             variant={"outlined"}

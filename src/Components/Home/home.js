@@ -7,7 +7,7 @@ import Sidebar from "../navBar/sidebar";
 import TopBar from "../navBar/topBar";
 import QuickAccess from "./quickAccess";
 import Feeds from "./feed";
-import './feedstyle.css';
+// import './feedstyle.css';
 
 
 function homePage() {
