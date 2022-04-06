@@ -10,14 +10,15 @@ import { MdOutlineCancelPresentation } from "react-icons/md";
 import { MdSend } from "react-icons/md";
 import Stack from "@mui/material/Stack";
 import Buttons from "@mui/material/Button";
-import { BsPencilSquare } from "react-icons/bs";
+import { BsPencilSquare} from "react-icons/bs";
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import "./Profile.css";
 import Skill from "./Skill";
-import { GrLinkNext } from "react-icons/gr";
+import { GrLinkNext , GrFormNextLink } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import Rating_info from "./Rating_info";
+import { ArrowRight , ArrowLeft } from 'react-bootstrap-icons';
 
 function GenericSkills() {
   const loggedUsername = localStorage.getItem("User");
@@ -32,8 +33,8 @@ function GenericSkills() {
   }, []);
   const ratingChanged = (newRating) => {
     console.log(newRating);
-  }
-  
+  };
+
   return (
     <>
       <Navbar />
@@ -44,114 +45,113 @@ function GenericSkills() {
           </div>
 
           <div className="col-md-7">
-          <div>
-    <br />
-    <div>
-      <h1>General Skills</h1>
-    </div>{" "}
-    <br />
-    <div>
-      <Card>
-        <div className="row">
-          <div className="col-md-12">
-            <Card.Body>
-              <div className="wrapper">
-                
-              <div className="skill">
-                  <h4>Oral Communication:</h4>
-                </div>
-                <div>
-                  <ReactStars
-                    count={6}
-                    value={3}                           
-                    size={50}
-                    activeColor="#0073e6"
-                  />
-                </div>
+            <div>
+              <br />
+              <div>
+                <h1>General Skills</h1>
+              </div>{" "}
+              <br />
+              <div>
+                <Card className="questionsCard">
+                  <div className="row">
+                    <div className="col-md-12">
+                      <Card.Body>
+                        <div className="wrapper">
+                          <div className="skill">
+                            <h4>Oral Communication:</h4>
+                          </div>
+                          <div>
+                            <ReactStars
+                              count={6}
+                              value={3}
+                              size={50}
+                              activeColor="#0073e6"
+                            />
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="wrapper">
+                          <div className="skill">
+                            <h4>Written Communication:</h4>
+                          </div>
+                          <div>
+                            <ReactStars
+                              count={6}
+                              size={50}
+                              activeColor="#0073e6"
+                            />
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="wrapper">
+                          <div className="skill">
+                            <h4>Process Conformance:</h4>
+                          </div>
+                          <div>
+                            <ReactStars
+                              count={6}
+                              size={50}
+                              activeColor="#0073e6"
+                            />
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="wrapper">
+                          <div className="skill">
+                            <h4>Presentation Skills:</h4>
+                          </div>
+                          <div>
+                            <ReactStars
+                              count={6}
+                              onChange={ratingChanged}
+                              size={50}
+                              activeColor="#0073e6"
+                            />
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="wrapper">
+                          <div className="skill">
+                            <h4>Leadership Skills:</h4>
+                          </div>
+                          <div>
+                            <ReactStars
+                              count={6}
+                              onChange={ratingChanged}
+                              size={50}
+                              activeColor="#0073e6"
+                            />
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="wrapper">
+                          <div className="skill">
+                            <h4>Management:</h4>
+                          </div>
+                          <div>
+                            <ReactStars
+                              count={6}
+                              onChange={ratingChanged}
+                              size={50}
+                              activeColor="#0073e6"
+                            />
+                          </div>
+                        </div>
+                      </Card.Body>
+                    </div>
+                  </div>
+                </Card>
               </div>
-              <hr />
-              <div className="wrapper">
-                
-                <div className="skill">
-                    <h4>Written Communication:</h4>
-                  </div>
-                  <div>
-                    <ReactStars
-                      count={6}
-                      size={50}
-                      activeColor="#0073e6"
-                    />
-                  </div>
-                </div><hr />
-                <div className="wrapper">
-                
-                <div className="skill">
-                    <h4>Process Conformance:</h4>
-                  </div>
-                  <div>
-                    <ReactStars
-                      count={6}
-                      size={50}
-                      activeColor="#0073e6"
-                    />
-                  </div>
-                </div><hr />
-                <div className="wrapper">
-                
-                <div className="skill">
-                    <h4>Presentation Skills:</h4>
-                  </div>
-                  <div>
-                    <ReactStars
-                      count={6}
-                      onChange={ratingChanged}
-                      size={50}
-                      activeColor="#0073e6"
-                    />
-                  </div>
-                </div><hr />
-                <div className="wrapper">
-                
-                <div className="skill">
-                    <h4>Leadership Skills:</h4>
-                  </div>
-                  <div>
-                    <ReactStars
-                      count={6}
-                      onChange={ratingChanged}
-                      size={50}
-                      activeColor="#0073e6"
-                    />
-                  </div>
-                </div><hr/>
-                <div className="wrapper">
-                
-                <div className="skill">
-                    <h4>Management:</h4>
-                  </div>
-                  <div>
-                    <ReactStars
-                      count={6}
-                      onChange={ratingChanged}
-                      size={50}
-                      activeColor="#0073e6"
-                    />
-                  </div>
-                </div>
-            
-            </Card.Body>
-          </div>
-        </div>
-      </Card>
-    </div>
-    <br />
-  </div>
+              <br />
+            </div>
           </div>
 
           <div className="col-md-1"></div>
-
-          <br/><br/>
-          <Rating_info/>
+          <div className="col-md-3">
+          <Rating_info />
+          <Button className="prevBtn" variant="outline-primary"><ArrowLeft/> Prev Section</Button>{' '}
+          <Button className="nextBtn" variant="primary">Next Section <ArrowRight/></Button>{' '}
+          </div>
         </div>
       </div>
     </>

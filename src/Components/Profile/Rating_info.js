@@ -37,7 +37,7 @@ export default function() {
       };
     
   return (
-    <div className="rating_info col-md-3">
+    <div className="rating_info">
     <h2>Rating info</h2>
     <Card style={{ border: "none" }}>
       <Card.Body>
@@ -114,8 +114,7 @@ export default function() {
     
       <>
         <hr />
-        <br />
-        <div className="editbutton">
+        {/* <div className="editbutton">
           <Buttons
             variant={"outlined"}
             color={"warning"}
@@ -134,10 +133,7 @@ export default function() {
             <GrLinkNext color={"#1976d2"} size={30} />
             &nbsp;&nbsp;Next
           </Buttons>
-        </div>
-
-        <br />
-        <br />
+        </div> */}
       </>
     
     {/* {editform === true && (
