@@ -7,6 +7,7 @@ import Sidebar from "../navBar/sidebar";
 import TopBar from "../navBar/topBar";
 import QuickAccess from "./quickAccess";
 import Feeds from "./feed";
+import './feedstyle.css';
 
 
 function homePage() {
@@ -15,13 +16,14 @@ function homePage() {
     <TopBar/>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-1 sideNav">
+          <div className="col-1 col-md-1 col-sm-1 sideNav">
             <Sidebar />
           </div>
-          <div className="col-md-4">
+
+          <div className="col-11 col-md-4 col-sm-11" style={{marginLeft:"20px"}}>
               <QuickAccess/>
           </div>
-          <div className="col-md-7">
+          <div className="col-11 col-md-7 col-sm-11 m-sm-5 m-md-0"  >
               <Feeds/>
           </div>
         </div>
