@@ -151,7 +151,7 @@ function GenericSkills() {
           <div className="col-md-1"></div>
 
           <br/><br/>
-          <Rating_info/>
+          <Rating_info next={"/BasicFoundation"}/>
         </div>
       </div>
     </>

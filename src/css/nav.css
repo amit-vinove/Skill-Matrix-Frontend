@@ -4,11 +4,10 @@
     width: 7.1% !important;
 }
 ul {     
-    width: 110px;
+    width: 120px;
     position: fixed;
     height: 100%;
     list-style-type: none;
-    margin-left: inherit;
     padding-left: unset !important;
     background-color: #273143;
     color: white;}

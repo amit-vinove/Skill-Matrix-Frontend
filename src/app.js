@@ -56,7 +56,7 @@ function App() {
       </Routes>
       <Routes>
         <Route
-          path="/basicFoundation"
+          path="/BasicFoundation"
           element={
             <RequireAuth redirectTo="/">
               <BasicFoundation />

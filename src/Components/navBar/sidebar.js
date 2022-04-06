@@ -26,7 +26,7 @@ function Sidebar() {
           <h6>General Skills</h6>
         </li>
         </NavLink>
-        <NavLink to="/basicFoundation" as="li">
+        <NavLink to="/BasicFoundation" as="li">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}

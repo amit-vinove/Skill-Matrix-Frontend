@@ -55,7 +55,7 @@ export default function BasicFoundation() {
           <div className="col-md-1"></div>
 
           <div className="col-md-3">
-          <Rating_info />
+          <Rating_info prev={"/GenericSkills"} />
           </div>
 
         </div>

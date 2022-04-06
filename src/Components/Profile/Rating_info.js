@@ -21,10 +21,11 @@ import Rating_info from "./Rating_info";
 import { ArrowRight , ArrowLeft } from 'react-bootstrap-icons';
 
 
-export default function() {
+export default function(props) {
     const ratingChanged = (newRating) => {
         console.log(newRating);
       }
+      
     const [profile, setProfile] = useState([]);
   const [editform, setEditform] = useState(false);
     const changeComp = () => {
@@ -34,8 +35,13 @@ export default function() {
         setEditform(false);
       };
       const navigate = useNavigate();
-      const moveNext = () => {
-        navigate("/basicFoundation");
+      const moveNext = (e,next) => {
+        console.log(next)
+        navigate(next);
+      };
+
+      const movePrev = (e,prev) => {
+        navigate(prev);
       };
     
   return (
@@ -117,8 +123,8 @@ export default function() {
             />
           </div>
         </div>
-        <Button className="prevBtn" variant="outline-primary"><ArrowLeft/> Prev Section</Button>{' '}
-    <Button className="nextBtn" variant="primary">Next Section <ArrowRight/></Button>{' '}
+        <Button className="prevBtn" variant="outline-primary" onClick={(e)=>movePrev(e,props.prev)}><ArrowLeft/> Prev Section</Button>{' '}
+        <Button className="nextBtn" type="button" onClick={(e)=>moveNext(e,props.next)} variant="primary">Next Section <ArrowRight/></Button>{' '}
       </Card.Body>
     </Card>
     
