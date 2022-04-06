@@ -5,6 +5,11 @@ import navCss from "../../css/nav.css";
 import homeCss from "../../css/home.css";
 import Card from "react-bootstrap/Card";
 import defaultPost from "../../images/defaultPost.svg";
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CallIcon from '@mui/icons-material/Call';
+import { NavLink } from "react-router-dom";
+import '../../css/feed.css'
 
 function Feeds() {
   const [feed, setFeeds] = useState("");
@@ -23,34 +28,61 @@ function Feeds() {
   return (
     <>
       <div className="container" style={{ padding: "20px" }}>
-        <h5 style={{ fontWeight: "400" }}>Announcements</h5>
+        <h3 style={{ fontWeight: "400" }}>Basic Employee Details</h3>
         <Card style={{ marginTop: "20px", marginBottom: "20px" }}>
           <Card.Body>
-            <Form>
-              <Form.Group
-                className="mb-1"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Control
-                  onChange={(e) => {
-                    setFeeds(e.target.value);
-                  }}
-                  style={{ border: "none" }}
-                  placeholder="Write your announcement here..."
-                  as="textarea" 
-                  rows={5}
-                />
-              </Form.Group>
-              <hr style={{ margin: "1px", border: "unset" }} />
-              <Button
-                onClick={(e) => AddFeed(e)}
-                variant="primary"
-                style={{ float: "right", width: "110px", fontSize: "16px" }}
-                type="submit"
-              >
-                Post
-              </Button>
-            </Form>
+            <h1 style={{fontFamily: "Georgia, serif"}}>Ruhi Peter</h1>
+            <div>
+              <div className="row">
+                <div className="col-3 col-md-4">
+                  <LocationOnIcon/> Gurugram
+                </div>
+                <div className="col-3 col-md-4">
+                 <MailOutlineIcon/> <a href='mailto:ruhi.peter@mail.vinove.com' className='email'>ruhi.peter@mail.vinove.com</a>
+                </div>
+                <div className="col-3 col-md-4">
+                 <CallIcon/> 7589308743
+                </div>
+
+              </div>
+              <hr/>
+              <div className="row">
+                <div className=" col-6 col-md-3 ">
+                 <label classname ="job title" style ={{color:"#b0b0b3"}}>JOB TITLE</label>
+                 <p>Jr. Associate Software Developer</p>
+                </div>
+                <div className="col-6 col-md-3  ">
+                <label classname ="DEPARTMENT" style ={{color:"#b0b0b3"}}>DEPARTMENT</label>
+                <p>Operations {'>'} MS -Xam...</p>
+                </div>
+                <div className="col-6 col-md-3 ">
+                <label classname ="bussiness unit"  style ={{color:"#b0b0b3"}}>BUSSINESS UNIT</label>
+                <p>Services</p>
+                </div>
+                <div className="col-6 col-md-3">
+                <label classname ="reporting" style ={{color:"#b0b0b3"}}>REPORTING TO</label>
+                <p>VIkas Kaushik</p>
+                </div>
+                <div className="col-6 col-md-3 mt-md-3 ">
+                <label classname ="EmpNo" style ={{color:"#b0b0b3"}}>EMP NO</label>
+                <p>V5998</p>
+                </div>
+                <div className="col-6 col-md-3  mt-md-3">
+                <label classname ="team" style ={{color:"#b0b0b3"}}>Team</label>
+                <p>.NET</p>
+                </div>
+                <div className="col-6 col-md-3 mt-md-3 ">
+                <label classname ="band" style ={{color:"#b0b0b3"}}>Band</label>
+                <p>L1</p>
+                </div>
+               
+                <hr style={{marginTop:"15px"}}/>
+             
+               
+                
+                
+              </div>
+            </div>
           </Card.Body>
         </Card>
 
