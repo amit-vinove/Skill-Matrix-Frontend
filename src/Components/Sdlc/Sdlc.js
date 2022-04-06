@@ -56,7 +56,7 @@ export default function Sdlc() {
           <div className="col-md-1"></div>
 
           <div className="col-md-3">
-            <Rating_info />
+          <Rating_info prev={"/Testing"} next={"/JsAndFrontend"} />
           </div>
         </div>
       </div>

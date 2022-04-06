@@ -57,7 +57,7 @@ export default function SqlServer() {
           <div className="col-md-1"></div>
 
           <div className="col-md-3">
-            <Rating_info />
+          <Rating_info prev={"/JsAndFrontend"} next={"/WebServices"} />
           </div>
         </div>
       </div>

@@ -56,7 +56,7 @@ export default function JsAndFront() {
           <div className="col-md-1"></div>
 
           <div className="col-md-3">
-            <Rating_info />
+          <Rating_info prev={"/SdlcPractices"} next={"/SqlServer"} />
           </div>
         </div>
       </div>

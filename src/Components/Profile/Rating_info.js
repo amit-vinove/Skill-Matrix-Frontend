@@ -123,7 +123,11 @@ export default function(props) {
             />
           </div>
         </div>
+        {props.prev != false && (   
+          <>      
         <Button className="prevBtn" variant="outline-primary" onClick={(e)=>movePrev(e,props.prev)}><ArrowLeft/> Prev Section</Button>{' '}
+        </>
+        )}
         <Button className="nextBtn" type="button" onClick={(e)=>moveNext(e,props.next)} variant="primary">Next Section <ArrowRight/></Button>{' '}
       </Card.Body>
     </Card>

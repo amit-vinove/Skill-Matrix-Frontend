@@ -38,7 +38,7 @@ export default function BasicFoundation() {
               </div>{" "}
               <br />
               <div>
-                <Card>
+                <Card className="questionsCard">
                   <div className="row">
                     <div className="col-md-12">
                       <Card.Body>
@@ -55,7 +55,7 @@ export default function BasicFoundation() {
           <div className="col-md-1"></div>
 
           <div className="col-md-3">
-          <Rating_info prev={"/GenericSkills"} />
+          <Rating_info prev={"/GenericSkills"} next={"/Testing"} />
           </div>
 
         </div>

@@ -77,7 +77,8 @@ export default function CloudAndDevops() {
           <div className="col-md-1"></div>
 
           <div className="col-md-3">
-            <Rating_info />
+          <Rating_info prev={"/WebServices"} next={"/CloudAndDevops"} />
+
           </div>
         </div>
       </div>

@@ -78,7 +78,7 @@ export default function TestDrivenDev() {
           <div className="col-md-1"></div>
 
           <div className="col-md-3">
-            <Rating_info />
+          <Rating_info prev={"/BasicFoundation"} next={"/SdlcPractices"} />
           </div>
         </div>
       </div>
