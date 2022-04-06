@@ -17,7 +17,7 @@ function Sidebar() {
           </li>
           </NavLink>
 
-        <NavLink to="/profile" as="li">
+        <NavLink to="/GenericSkills" as="li">
         <li>
           <img
             style={{ height: "30px", width: "30px" }}
