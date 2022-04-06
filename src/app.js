@@ -4,7 +4,7 @@ import HomePage from "./Components/Home/home";
 import LoginPage from "./Components/login/login";
 import indexCss from "./css/index.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import BasicFoundation from "./Components/Profile/BasicFoundation";
+import BasicFoundation from "./Components/BasicFoundation/BasicFoundation";
 import GenericSkills from "./Components/GenericSkills/GenericSkills";
 
 function getAuth() {
