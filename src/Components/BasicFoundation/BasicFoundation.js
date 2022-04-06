@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 import Rating_info from "../Profile/Rating_info";
 import BasicFoundationQuestions from "./Questions";
 export default function BasicFoundation() {
-    const loggedUsername = localStorage.getItem("User");
+  const loggedUsername = localStorage.getItem("User");
   return (
     <>
       <Navbar />
@@ -31,31 +31,33 @@ export default function BasicFoundation() {
           </div>
 
           <div className="col-md-7">
-          <div>
-    <br />
-    <div>
-      <h1>Basic Foundation Skills</h1>
-    </div>{" "}
-    <br />
-    <div>
-      <Card>
-        <div className="row">
-          <div className="col-md-12">
-          <Card.Body>
-            <Skill questions={BasicFoundationQuestions}/>
-          </Card.Body>
-          </div>
-        </div>
-      </Card>
-    </div>
-    <br />
-  </div>
+            <div>
+              <br />
+              <div>
+                <h1>Basic Foundation Skills</h1>
+              </div>{" "}
+              <br />
+              <div>
+                <Card>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <Card.Body>
+                        <Skill questions={BasicFoundationQuestions} />
+                      </Card.Body>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+              <br />
+            </div>
           </div>
 
           <div className="col-md-1"></div>
 
-          <br/><br/>
-          <Rating_info/>
+          <div className="col-md-3">
+          <Rating_info />
+          </div>
+
         </div>
       </div>
     </>
