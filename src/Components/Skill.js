@@ -7,12 +7,8 @@ export default function Skill(props) {
     console.log(newRating);
   }
   const questions = props.questions;
-  console.log(questions[1][0]);
   return (
     <div>
-
-
-
       {questions.map((ele, i) => {
         return (
           <>
@@ -36,10 +32,6 @@ export default function Skill(props) {
         )
 
       })}
-
-
-
-
     </div>
   )
 }
