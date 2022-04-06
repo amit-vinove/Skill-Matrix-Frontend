@@ -8,8 +8,6 @@ import TopBar from "../navBar/topBar";
 import QuickAccess from "./quickAccess";
 import Feeds from "./feed";
 
-
-
 function homePage() {
   return (
     <>

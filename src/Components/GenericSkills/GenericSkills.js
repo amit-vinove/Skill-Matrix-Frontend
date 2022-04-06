@@ -19,6 +19,7 @@ import { GrLinkNext } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import Rating_info from "../Profile/Rating_info";
 import GenericSkillQuestions from "./Questions";
+import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 
 function GenericSkills() {
   const loggedUsername = localStorage.getItem("User");
@@ -28,7 +29,7 @@ function GenericSkills() {
 
   const ratingChanged = (newRating) => {
     console.log(newRating);
-  }
+  };
 
   return (
     <>
@@ -40,31 +41,32 @@ function GenericSkills() {
           </div>
 
           <div className="col-md-7">
-          <div>
-    <br />
-    <div>
-      <h1>General Skills</h1>
-    </div>{" "}
-    <br />
-    <div>
-      <Card>
-        <div className="row">
-          <div className="col-md-12">
-          <Card.Body>
-            <Skill questions={GenericSkillQuestions}/>
-          </Card.Body>
-          </div>
-        </div>
-      </Card>
-    </div>
-    <br />
-  </div>
+            <div>
+              <br />
+              <div>
+                <h1>General Skills</h1>
+              </div>{" "}
+              <br />
+              <div>
+                <Card className="questionsCard">
+                  <div className="row">
+                    <div className="col-md-12">
+                      <Card.Body>
+                        <Skill questions={GenericSkillQuestions} />
+                      </Card.Body>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+              <br />
+            </div>
           </div>
 
           <div className="col-md-1"></div>
 
-          <br/><br/>
-          <Rating_info/>
+          <div className="col-md-3">
+            <Rating_info />
+          </div>
         </div>
       </div>
     </>
