@@ -35,6 +35,62 @@ function Sidebar() {
           <h6>Basic Foundation</h6>
         </li>
         </NavLink>
+        <NavLink to="/Testing" as="li">
+        <li>
+          <img
+            style={{ height: "30px", width: "30px" }}
+            src="https://img.icons8.com/pastel-glyph/148/ffffff/person-male--v3.png"
+          />
+          <h6>Testing</h6>
+        </li>
+        </NavLink>
+        <NavLink to="/SdlcPractices" as="li">
+        <li>
+          <img
+            style={{ height: "30px", width: "30px" }}
+            src="https://img.icons8.com/pastel-glyph/148/ffffff/person-male--v3.png"
+          />
+          <h6>SDLC Practices</h6>
+        </li>
+        </NavLink>
+        <NavLink to="/JsAndFrontend" as="li">
+        <li>
+          <img
+            style={{ height: "30px", width: "30px" }}
+            src="https://img.icons8.com/pastel-glyph/148/ffffff/person-male--v3.png"
+          />
+          <h6>JS & Frontend</h6>
+        </li>
+        </NavLink>
+        <NavLink to="/SqlServer" as="li">
+        <li>
+          <img
+            style={{ height: "30px", width: "30px" }}
+            src="https://img.icons8.com/pastel-glyph/148/ffffff/person-male--v3.png"
+          />
+          <h6>SQL Server</h6>
+        </li>
+        </NavLink>
+        <NavLink to="/WebServices" as="li">
+        <li>
+          <img
+            style={{ height: "30px", width: "30px" }}
+            src="https://img.icons8.com/pastel-glyph/148/ffffff/person-male--v3.png"
+          />
+          <h6>Web Services/Web APIs</h6>
+        </li>
+        </NavLink>
+        <NavLink to="/CloudAndDevops" as="li">
+        <li>
+          <img
+            style={{ height: "30px", width: "30px" }}
+            src="https://img.icons8.com/pastel-glyph/148/ffffff/person-male--v3.png"
+          />
+          <h6>Cloud And Devops</h6>
+        </li>
+        </NavLink>
+        
+        
         
       </ul>
     </>

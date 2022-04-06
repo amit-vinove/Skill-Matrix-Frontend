@@ -6,6 +6,12 @@ import indexCss from "./css/index.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import BasicFoundation from "./Components/BasicFoundation/BasicFoundation";
 import GenericSkills from "./Components/GenericSkills/GenericSkills";
+import TestDrivenDev from "./Components/TestDrivenDev/TestDrivenDev";
+import Sdlc from "./Components/Sdlc/Sdlc";
+import JsAndFront from "./Components/JsAndFront/JsAndFront";
+import SqlServer from "./Components/SqlServer/SqlServer";
+import WebServices from "./Components/WebServices/WebServices";
+import CloudAndDevops from "./Components/CloudAndDevops/CloudAndDevops";
 
 function getAuth() {
   const loggedIn = localStorage.getItem("LoggedIn");
@@ -54,6 +60,66 @@ function App() {
           element={
             <RequireAuth redirectTo="/">
               <BasicFoundation />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/Testing"
+          element={
+            <RequireAuth redirectTo="/">
+              <TestDrivenDev />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/SdlcPractices"
+          element={
+            <RequireAuth redirectTo="/">
+              <Sdlc />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/JsAndFrontend"
+          element={
+            <RequireAuth redirectTo="/">
+              <JsAndFront />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/SqlServer"
+          element={
+            <RequireAuth redirectTo="/">
+              <SqlServer />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/WebServices"
+          element={
+            <RequireAuth redirectTo="/">
+              <WebServices />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/CloudAndDevops"
+          element={
+            <RequireAuth redirectTo="/">
+              <CloudAndDevops />
             </RequireAuth>
           }
         />

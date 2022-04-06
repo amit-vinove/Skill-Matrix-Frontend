@@ -51,6 +51,7 @@ export default function() {
             <ReactStars
               count={6}
               value={1}
+              edit={false}
               size={35}
               activeColor="#0073e6"
             />
@@ -62,6 +63,7 @@ export default function() {
             <ReactStars
               count={6}
               value={2}
+              edit={false}
               size={35}
               activeColor="#0073e6"
             />
@@ -73,6 +75,7 @@ export default function() {
             <ReactStars
               count={6}
               value={3}
+              edit={false}
               size={35}
               activeColor="#0073e6"
             />
@@ -84,6 +87,7 @@ export default function() {
             <ReactStars
               count={6}
               value={4}
+              edit={false}
               size={35}
               activeColor="#0073e6"
             />
@@ -95,6 +99,7 @@ export default function() {
             <ReactStars
               count={6}
               value={5}
+              edit={false}
               size={35}
               activeColor="#0073e6"
             />
@@ -106,6 +111,7 @@ export default function() {
             <ReactStars
               count={6}
               value={6}
+              edit={false}
               size={35}
               activeColor="#0073e6"
             />
