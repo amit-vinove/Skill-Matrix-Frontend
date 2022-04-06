@@ -7,7 +7,7 @@ import questionsCss from "../../css/questions.css";
 import { Card, Button } from "react-bootstrap";
 import profileImg from "../../images/2474247.jpg";
 import { MdOutlineCancelPresentation } from "react-icons/md";
-// import { MdSend } from "react-icons/md";
+import { MdSend } from "react-icons/md";
 import Stack from "@mui/material/Stack";
 import Buttons from "@mui/material/Button";
 import { BsPencilSquare } from "react-icons/bs";

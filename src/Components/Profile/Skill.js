@@ -10,11 +10,8 @@ export default function Skill(props) {
   return (
     <div>
     <br />
-    <div>
-      <h1>General Skills</h1>
-    </div>{" "}
-    <br />
-    <div>
+    
+     <div>
       <Card>
         <div className="row">
           <div className="col-md-12">
