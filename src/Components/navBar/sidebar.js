@@ -62,6 +62,15 @@ function Sidebar() {
           <h6>JS & Frontend</h6>
         </li>
         </NavLink>
+        <NavLink to="/TeamSkills" as="li">
+        <li>
+          <img
+            style={{ height: "30px", width: "30px" }}
+            src="https://img.icons8.com/ios-filled/150/ffffff/cloud-sync--v1.png"
+          />
+          <h6>Team Skills</h6>
+        </li>
+        </NavLink>
         <NavLink to="/SqlServer" as="li">
         <li>
           <img
