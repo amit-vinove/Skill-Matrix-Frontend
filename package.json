@@ -24,6 +24,7 @@
     "react-bootstrap-sidebar-menu": "^0.1.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-query": "^3.34.19",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",

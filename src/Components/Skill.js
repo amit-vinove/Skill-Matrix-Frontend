@@ -20,7 +20,7 @@ export default function Skill(props) {
               <div>
                 <ReactStars
                   count={6}
-                  value={3}
+                  value={0}
                   edit={props.edit}
                   size={50}
                   activeColor="#0073e6"
@@ -28,7 +28,6 @@ export default function Skill(props) {
               </div>
             </div>
             <hr /></>
-
         )
 
       })}

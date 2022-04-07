@@ -26,10 +26,13 @@ function LoginPage({loggedIn,setLoggedIn}) {
     .then(res => {
       const data = res.data;
       console.log(data)
+      const userId = res.data.data
+      console.log(userId)
       if(data.responseCode == 200){
       console.log("Logged in Successfully")
       localStorage.setItem("LoggedIn", true);
       localStorage.setItem("User", username);
+      localStorage.setItem("UserId",userId)
       let path = `/home`; 
       navigate(path);
     }

@@ -30,7 +30,33 @@ function GenericSkills() {
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
+  const obj={
+    "genericId": 0,
+    "employeeId": 0,
+    "oral_Communication": 0,
+    "written_Communication": 0,
+    "process_Conformance": 0,
+    "presentation_skill": 0,
+    "leadership_Skills": 0,
+    "management": 0,
+    "interpersonal_Skills": 0,
+    "takes_Initiative": 0,
+    "critical_and_Analytical_Thinking": 0,
+    "demonstrate_Teamwork": 0,
+    "adaptability_And_Flexibility": 0,
+    "customer_Focus": 0,
+    "planning_And_Organizing": 0,
+    "negotiation_Skills": 0,
+    "problem_Solving_Skills": 0,
+    "isApproved": true
+  }
+  // useEffect(()=>{
+  //   axios.get(``).then((res))
 
+  // },[])
+const quesKeys = Object.entries(obj)  
+const a=quesKeys[0];
+console.log(quesKeys[1][0]);
   return (
     <>
       <Navbar />
