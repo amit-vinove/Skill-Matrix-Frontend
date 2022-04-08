@@ -12,6 +12,7 @@ import JsAndFront from "./Components/JsAndFront/JsAndFront";
 import SqlServer from "./Components/SqlServer/SqlServer";
 import WebServices from "./Components/WebServices/WebServices";
 import CloudAndDevops from "./Components/CloudAndDevops/CloudAndDevops";
+import TeamSkills from "./Components/TeamSkills/TeamSkills";
 
 function getAuth() {
   const loggedIn = localStorage.getItem("LoggedIn");
@@ -90,6 +91,16 @@ function App() {
           element={
             <RequireAuth redirectTo="/">
               <JsAndFront />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+      <Routes>
+        <Route
+          path="/TeamSkills"
+          element={
+            <RequireAuth redirectTo="/">
+              <TeamSkills />
             </RequireAuth>
           }
         />
