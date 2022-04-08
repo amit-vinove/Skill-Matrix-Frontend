@@ -20,8 +20,14 @@ import { useNavigate } from "react-router-dom";
 import Rating_info from "../Profile/Rating_info";
 import GenericSkillQuestions from "./Questions";
 import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
-
+import {useQuery} from 'react-query'
+async function fetchData(){
+  const {data} = await axios.get(`https://localhost:7074/api/GenericSkills/GetGenericSkillByEmpId?empId=1`)    
+  return data
+}
 function GenericSkills() {
+  const {data, error, isError, isLoading } = useQuery('GenericData', fetchData) 
+ 
   const loggedUsername = localStorage.getItem("User");
   const profileURL = `http://localhost:5032/api/Employee/GetEmployeeByUsername?username=${loggedUsername}`;
   const [profile, setProfile] = useState([]);
@@ -61,6 +67,13 @@ const apiCall=(obj)=>{
   .then(res=>console.log(res))
   .catch(err => console.log(err));
 }
+if(isLoading){
+  return <div>Loading...</div>
+}
+if(isError){
+  return <div>Error! {error.message}</div>
+}
+
   return (
     <>
       <Navbar />
@@ -82,7 +95,7 @@ const apiCall=(obj)=>{
                   <div className="row">
                     <div className="col-md-12">
                       <Card.Body>
-                        <Skill questions={GenericSkillQuestions} quesKeys={quesKeys} setQuesKeys={setQuesKeys}/>
+                        <Skill questions={GenericSkillQuestions} quesKeys={quesKeys} setQuesKeys={setQuesKeys} data={data}/>
                       </Card.Body>
                     </div>
                   </div>

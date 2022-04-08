@@ -12,12 +12,14 @@ export default function Skill(props) {
   }
  
   const questions = props.questions;
+  const EmpRatings=Object.values(props.data.data);
+
   return (
     <div>
       {questions.map((ele, i) => {
         return (
-          <>
-            <div className="wrapper" key={i}>
+          <div key={i}>
+            <div className="wrapper" >
 
               <div className="skill">
                 <h4>{ele}:</h4>
@@ -25,7 +27,7 @@ export default function Skill(props) {
               <div>
                 <ReactStars
                   count={6}
-                  value={0}
+                  value={EmpRatings[i+2]}
                   edit={props.edit}
                   size={50}
                   onChange={(e)=>ratingChanged(e,i)}
@@ -33,7 +35,7 @@ export default function Skill(props) {
                 />
               </div>
             </div>
-            <hr /></>
+            <hr /></div>
         )
 
       })}

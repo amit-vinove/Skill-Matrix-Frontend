@@ -14,6 +14,7 @@ export default function TeamSkillsQuestions(props) {
 
         })
     }, [])
+    
     return (
         
                     <div className="col-md-12">
