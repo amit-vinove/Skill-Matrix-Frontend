@@ -32,7 +32,7 @@ function GenericSkills() {
   };
   const obj={
     "genericId": 0,
-    "employeeId": 0,
+    "employeeId": 2,
     "oral_Communication": 0,
     "written_Communication": 0,
     "process_Conformance": 0,
@@ -48,15 +48,19 @@ function GenericSkills() {
     "planning_And_Organizing": 0,
     "negotiation_Skills": 0,
     "problem_Solving_Skills": 0,
-    "isApproved": true
+    "isApproved": false
   }
   // useEffect(()=>{
   //   axios.get(``).then((res))
 
   // },[])
-const quesKeys = Object.entries(obj)  
-const a=quesKeys[0];
-console.log(quesKeys[1][0]);
+const [quesKeys,setQuesKeys] = useState(Object.entries(obj));
+const apiCall=(obj)=>{
+  console.log(obj);
+  axios.post(`https://localhost:7074/api/GenericSkills/CreateGenericSkills`,obj)
+  .then(res=>console.log(res))
+  .catch(err => console.log(err));
+}
   return (
     <>
       <Navbar />
@@ -78,7 +82,7 @@ console.log(quesKeys[1][0]);
                   <div className="row">
                     <div className="col-md-12">
                       <Card.Body>
-                        <Skill questions={GenericSkillQuestions} />
+                        <Skill questions={GenericSkillQuestions} quesKeys={quesKeys} setQuesKeys={setQuesKeys}/>
                       </Card.Body>
                     </div>
                   </div>
@@ -91,7 +95,7 @@ console.log(quesKeys[1][0]);
           <div className="col-md-1"></div>
 
           <div className="col-md-3">
-          <Rating_info next={"/BasicFoundation"} prev={false}/>
+          <Rating_info next={"/BasicFoundation"} prev={false} quesKeys={quesKeys} apiCall={apiCall}/>
           </div>
         </div>
       </div>

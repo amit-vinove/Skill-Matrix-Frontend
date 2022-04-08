@@ -14,124 +14,137 @@ import { BsPencilSquare } from "react-icons/bs";
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import "./Profile.css";
-import Skill from "./Skill";
 import { GrLinkNext } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import Rating_info from "./Rating_info";
-import { ArrowRight , ArrowLeft } from 'react-bootstrap-icons';
+import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 
+export default function (props) {
+  const ratingChanged = (newRating) => {
+    console.log(newRating);
+  };
 
-export default function(props) {
-    const ratingChanged = (newRating) => {
-        console.log(newRating);
-      }
-      
-    const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState([]);
   const [editform, setEditform] = useState(false);
-    const changeComp = () => {
-        setEditform(true);
-      };
-      const cancelEdit = () => {
-        setEditform(false);
-      };
-      const navigate = useNavigate();
-      const moveNext = (e,next) => {
-        console.log(next)
-        navigate(next);
-      };
+  const changeComp = () => {
+    setEditform(true);
+  };
+  const cancelEdit = () => {
+    setEditform(false);
+  };
+  const navigate = useNavigate();
+  const moveNext = (e, next) => {
+    console.log(next);
+    // navigate(next);
+    const PostObj =Object.fromEntries(props.quesKeys)
+    props.apiCall(PostObj);
+  };
 
-      const movePrev = (e,prev) => {
-        navigate(prev);
-      };
-    
+  const movePrev = (e, prev) => {
+    navigate(prev);
+  };
+
   return (
     <div className="rating_info">
-    <h2>Rating info</h2>
-    <Card style={{ border: "none" }}>
-      <Card.Body>
-        <div className="info">
-          <div className="info_rating">
-            <h6>Not Required</h6>
+      <h2>Rating info</h2>
+      <Card style={{ border: "none" }}>
+        <Card.Body>
+          <div className="info">
+            <div className="info_rating">
+              <h6>Not Required</h6>
+            </div>
+            <div>
+              <ReactStars
+                count={6}
+                value={1}
+                edit={false}
+                size={35}
+                activeColor="#0073e6"
+              />
+            </div>
+            <div className="info_rating">
+              <h6>No Capability</h6>
+            </div>
+            <div>
+              <ReactStars
+                count={6}
+                value={2}
+                edit={false}
+                size={35}
+                activeColor="#0073e6"
+              />
+            </div>
+            <div className="info_rating">
+              <h6>Basic Level</h6>
+            </div>
+            <div>
+              <ReactStars
+                count={6}
+                value={3}
+                edit={false}
+                size={35}
+                activeColor="#0073e6"
+              />
+            </div>
+            <div className="info_rating">
+              <h6>Intermediate Level</h6>
+            </div>
+            <div>
+              <ReactStars
+                count={6}
+                value={4}
+                edit={false}
+                size={35}
+                activeColor="#0073e6"
+              />
+            </div>
+            <div className="info_rating">
+              <h6>Advanced Level</h6>
+            </div>
+            <div>
+              <ReactStars
+                count={6}
+                value={5}
+                edit={false}
+                size={35}
+                activeColor="#0073e6"
+              />
+            </div>
+            <div className="info_rating">
+              <h6>Expert/SME</h6>
+            </div>
+            <div>
+              <ReactStars
+                count={6}
+                value={6}
+                edit={false}
+                size={35}
+                activeColor="#0073e6"
+              />
+            </div>
           </div>
-          <div>
-            <ReactStars
-              count={6}
-              value={1}
-              edit={false}
-              size={35}
-              activeColor="#0073e6"
-            />
-          </div>
-          <div className="info_rating">
-            <h6>No Capability</h6>
-          </div>
-          <div>
-            <ReactStars
-              count={6}
-              value={2}
-              edit={false}
-              size={35}
-              activeColor="#0073e6"
-            />
-          </div>
-          <div className="info_rating">
-            <h6>Basic Level</h6>
-          </div>
-          <div>
-            <ReactStars
-              count={6}
-              value={3}
-              edit={false}
-              size={35}
-              activeColor="#0073e6"
-            />
-          </div>
-          <div className="info_rating">
-            <h6>Intermediate Level</h6>
-          </div>
-          <div>
-            <ReactStars
-              count={6}
-              value={4}
-              edit={false}
-              size={35}
-              activeColor="#0073e6"
-            />
-          </div>
-          <div className="info_rating">
-            <h6>Advanced Level</h6>
-          </div>
-          <div>
-            <ReactStars
-              count={6}
-              value={5}
-              edit={false}
-              size={35}
-              activeColor="#0073e6"
-            />
-          </div>
-          <div className="info_rating">
-            <h6>Expert/SME</h6>
-          </div>
-          <div>
-            <ReactStars
-              count={6}
-              value={6}
-              edit={false}
-              size={35}
-              activeColor="#0073e6"
-            />
-          </div>
-        </div>
-        {props.prev != false && (   
-          <>      
-        <Button className="prevBtn" variant="outline-primary" onClick={(e)=>movePrev(e,props.prev)}><ArrowLeft/> Prev Section</Button>{' '}
-        </>
-        )}
-        <Button className="nextBtn" type="button" onClick={(e)=>moveNext(e,props.next)} variant="primary">Next Section <ArrowRight/></Button>{' '}
-      </Card.Body>
-    </Card>
-    
+          {props.prev != false && (
+            <>
+              <Button
+                className="prevBtn"
+                variant="outline-primary"
+                onClick={(e) => movePrev(e, props.prev)}
+              >
+                <ArrowLeft /> Prev Section
+              </Button>{" "}
+            </>
+          )}
+          <Button
+            className="nextBtn"
+            type="button"
+            onClick={(e) => moveNext(e, props.next)}
+            variant="primary"
+          >
+            Next Section <ArrowRight />
+          </Button>{" "}
+        </Card.Body>
+      </Card>
+
       <>
         {/* <div className="editbutton">
           <Buttons
@@ -154,8 +167,8 @@ export default function(props) {
           </Buttons>
         </div> */}
       </>
-    
-    {/* {editform === true && (
+
+      {/* {editform === true && (
       <>
         <hr />
         <br />
@@ -179,6 +192,6 @@ export default function(props) {
         </div>
       </>
     )} */}
-  </div>
-  )
+    </div>
+  );
 }

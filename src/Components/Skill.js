@@ -3,9 +3,14 @@ import { Card } from 'react-bootstrap'
 import ReactStars from 'react-rating-stars-component'
 
 export default function Skill(props) {
-  const ratingChanged = (newRating) => {
-    console.log(newRating);
+  const ratingChanged = (newRating,i,e) => {
+
+    props.quesKeys[i+2][1]=newRating;
+
+    props.setQuesKeys(props.quesKeys);
+
   }
+ 
   const questions = props.questions;
   return (
     <div>
@@ -23,6 +28,7 @@ export default function Skill(props) {
                   value={0}
                   edit={props.edit}
                   size={50}
+                  onChange={(e)=>ratingChanged(e,i)}
                   activeColor="#0073e6"
                 />
               </div>
